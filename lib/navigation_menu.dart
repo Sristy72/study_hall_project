@@ -76,6 +76,8 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                     BoxShadow(
                       color: const Color(0xFFFC7C39).withOpacity(0.4),
                       blurRadius: 20,
+                      spreadRadius: 5, // How wide the shadow spreads
+                      offset: const Offset(0, 7),
                     ),
                   ],
                 ),
