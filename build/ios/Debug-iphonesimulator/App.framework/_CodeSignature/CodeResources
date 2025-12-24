@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		T6uXqiru9lNw9sl/6WK3x4iCbzk=
+		gnP9MbuC1/XDGu0cVfqLqmn5O/8=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,11 +18,27 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		6TWbyOUG1rnlMjo9/yshG+PfAr8=
+		i3PfyrRl/OVeI8OuftPTXTzAr6s=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
 		re4p7E8rPLLsN+wzaPN/+AVpXTY=
+		</data>
+		<key>flutter_assets/assets/icon/bookmark.svg</key>
+		<data>
+		ZKcLOjW9RqpNLj/cJMegZ6E/upI=
+		</data>
+		<key>flutter_assets/assets/icon/home.svg</key>
+		<data>
+		H1P0UXRqvrsnKB/819wpl3msuc4=
+		</data>
+		<key>flutter_assets/assets/icon/message.svg</key>
+		<data>
+		QNER9LiaWFtd8nJWDlLx2TiQVgI=
+		</data>
+		<key>flutter_assets/assets/icon/user.svg</key>
+		<data>
+		u3Noe9/uBKegOTvwsnzO+7vQ+ZA=
 		</data>
 		<key>flutter_assets/assets/images/fb.png</key>
 		<data>
@@ -50,7 +66,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		D31YJRznTruI8UK9zIFOh/STf6I=
+		Tb5ly5p23mUfzVFJ8NmwL1ryp0g=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -75,7 +91,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ICkZ+M29gl3BNJtMnlqiY74oJfxWkjm2y+ojdcwGsWc=
+			2ZqolKB0H18m+oT5BU/gIUjQztTGxjO7Ln6kvRDbv9w=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -89,7 +105,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/s8AmgmZzu43/ThYAh5Ghy7DNrGGpUUiAG68yINZ6T4=
+			bEEyeRrCuSR9YBfHM1kIsaFVRTnFJfnlBdmF+KDTxf8=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -97,6 +113,34 @@
 			<key>hash2</key>
 			<data>
 			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icon/bookmark.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			D23/gPxIjgCRtzuYHyYjf/yvTa5ksQXyMM+EmuXbzO4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icon/home.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Pf5GUVQ0Xxonn1OnTS+pjFf8Q8eEh1p3cqOrAC6+sCg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icon/message.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			v0YcVuMcaQMbfScj2s/iR+ksGTij3SsCGmPfuW7ISDM=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icon/user.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xrHkOPAJUj8E+wsDMIIXnWQg1iQBbvo+SicRqS/UTxg=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/fb.png</key>
@@ -145,7 +189,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WKQPJVwWKctnqn3MpL3pPYPHEssxdcJSmYR5hi15GCY=
+			ESDkNWkSPeD5tYwmIAp154N5Hali2ovPC3Ne4JkC1Ig=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

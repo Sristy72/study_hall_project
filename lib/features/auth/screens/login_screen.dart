@@ -6,6 +6,8 @@ import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/core/utils/debug_print.dart';
 import 'package:study_hall_project/features/auth/controller/auth_controller.dart';
 import 'package:study_hall_project/features/auth/screens/register_email_screen.dart';
+import 'package:study_hall_project/features/home/screens/home_screen.dart';
+import 'package:study_hall_project/navigation_menu.dart';
 
 import '../../../core/common/widgets/button_widgets.dart';
 import '../../../core/theme/input_decoration_extensions.dart';
@@ -184,8 +186,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             // Login Button
                             PrimaryButton(
                               height: 56,
-                              onApiPressed: () {
-                                return _submit();
+                              onSimplePressed: () {
+                                Get.to(() => CustomBottomNav());
                               },
                               text: 'Login',
                             ),
