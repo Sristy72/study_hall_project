@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutx_core/core/validation/validators.dart';
-import 'package:study_hall_project/core/theme/app_buttoms.dart';
+import 'package:get/get.dart';
+import 'package:study_hall_project/core/theme/app_colors.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
+import 'package:study_hall_project/core/utils/debug_print.dart';
+import 'package:study_hall_project/features/auth/controller/auth_controller.dart';
+import 'package:study_hall_project/features/auth/screens/register_email_screen.dart';
 
+import '../../../core/common/widgets/button_widgets.dart';
 import '../../../core/theme/input_decoration_extensions.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,11 +18,25 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _emailTEController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController _emailTextController = TextEditingController();
   final FocusNode _emailFocusNode = FocusNode();
 
-  final TextEditingController _passTEController = TextEditingController();
+  final TextEditingController _passTextController = TextEditingController();
   final FocusNode _passFocusNode = FocusNode();
+
+  // Controller
+  final _authCtrl = Get.put(AuthController());
+
+  Future<void> _submit() async {
+    if (!_formKey.currentState!.validate()) return;
+    DPrint.log("message");
+    await _authCtrl.login(
+      email: _emailTextController.text.trim(),
+      password: _passTextController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,210 +56,213 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 60), // Optional top spacing
-                          // Logo
-                          Image.asset(
-                            'assets/images/logo.png',
-                            width: 167.08,
-                            height: 67,
-                          ),
-                          const SizedBox(height: 24),
-
-                          // Title
-                          const Text(
-                            'Login To Study Hall',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600,
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 60), // Optional top spacing
+                            // Logo
+                            Image.asset(
+                              'assets/images/logo.png',
+                              width: 167.08,
+                              height: 67,
                             ),
-                          ),
-                          const SizedBox(height: 48),
+                            const SizedBox(height: 24),
 
-                          // Email Label & Field
-                          const Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Enter Your Email',
+                            // Title
+                            const Text(
+                              'Login To Study Hall',
                               style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xFF1F2937),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          TextFormField(
-                            controller: _emailTEController,
-                            focusNode: _emailFocusNode,
-                            keyboardType: TextInputType.emailAddress,
-                            textInputAction: TextInputAction.next,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF9EA7B8),
-                            ),
-                            decoration: context.primaryInputDecoration.copyWith(
-                              prefixIcon: const Icon(
-                                Icons.email_outlined,
-                                color: Color(0xFF9CA3AF),
-                              ),
-                              hintText: "Ex. john@.com",
-                              filled: true,
-                              fillColor: const Color(0xFFF3F4F6),
-                            ),
-                            validator: Validators.email,
-                            onFieldSubmitted: (_) =>
-                                FocusScope.of(context).unfocus(),
-                            autofillHints: const [AutofillHints.email],
-                          ),
-
-                          const SizedBox(height: 12),
-
-                          // Password Label & Field
-                          const Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Enter Your Password',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xFF1F2937),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          TextFormField(
-                            controller: _passTEController,
-                            focusNode: _passFocusNode,
-                            keyboardType: TextInputType.visiblePassword,
-                            textInputAction: TextInputAction.done,
-                            obscureText: true, // You can add toggle later
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF9EA7B8),
-                            ),
-                            decoration: context.primaryInputDecoration.copyWith(
-                              prefixIcon: const Icon(
-                                Icons.lock_outline,
-                                color: Color(0xFF9CA3AF),
-                              ),
-                              hintText: "password",
-                              filled: true,
-                              fillColor: const Color(0xFFF3F4F6),
-                            ),
-                            validator: Validators.password,
-                            onFieldSubmitted: (_) =>
-                                FocusScope.of(context).unfocus(),
-                            autofillHints: const [AutofillHints.password],
-                          ),
-
-                          // Forgot Password
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {
-                                // Navigate to Forgot Password
-                              },
-                              child: const Text(
-                                'Forgot Password',
-                                style: TextStyle(
-                                  color: Color(0xFF2563EB),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          // Login Button
-                          PrimaryButton(
-                            onPressed: () {
-                              // Handle login
-                            },
-                            child: const Text(
-                              'Login',
-                              style: TextStyle(
-                                color: Colors.white,
+                                fontSize: 24,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
                               ),
                             ),
-                          ),
+                            const SizedBox(height: 48),
 
-                          const SizedBox(height: 32),
-
-                          // OR Divider
-                          const Row(
-                            children: [
-                              Expanded(
-                                child: Divider(
-                                  thickness: 1,
-                                  color: Color(0xFF9CA3AF),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16),
-                                child: Text(
-                                  'OR',
-                                  style: TextStyle(color: Color(0xFF5D6A85)),
-                                ),
-                              ),
-                              Expanded(
-                                child: Divider(
-                                  thickness: 1,
-                                  color: Color(0xFF9CA3AF),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          const SizedBox(height: 32),
-
-                          // Social Buttons
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              _socialButton('assets/images/fb.png'),
-                              const SizedBox(width: 32),
-                              _socialButton('assets/images/google.png'),
-                              const SizedBox(width: 32),
-                              _socialButton('assets/images/insta.png'),
-                            ],
-                          ),
-
-                          const SizedBox(height: 60), // Bottom spacing
-                          // Register Link
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "Don't have an account?",
+                            // Email Label & Field
+                            const Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                'Enter Your Email',
                                 style: TextStyle(
-                                  color: Color(0xFF6B7280),
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF1F2937),
                                 ),
                               ),
-                              TextButton(
+                            ),
+                            const SizedBox(height: 4),
+                            TextFormField(
+                              controller: _emailTextController,
+                              focusNode: _emailFocusNode,
+                              keyboardType: TextInputType.emailAddress,
+                              textInputAction: TextInputAction.next,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: AppColors.textBlack,
+                              ),
+                              decoration: context.primaryInputDecoration
+                                  .copyWith(
+                                    prefixIcon: const Icon(
+                                      Icons.email_outlined,
+                                      color: Color(0xFF9CA3AF),
+                                    ),
+                                    hintText: "Ex. john@.com",
+                                    filled: true,
+                                    fillColor: const Color(0xFFF3F4F6),
+                                  ),
+                              validator: Validators.email,
+                              onFieldSubmitted: (_) =>
+                                  FocusScope.of(context).unfocus(),
+                              autofillHints: const [AutofillHints.email],
+                            ),
+
+                            const SizedBox(height: 12),
+
+                            // Password Label & Field
+                            const Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                'Enter Your Password',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF1F2937),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            TextFormField(
+                              controller: _passTextController,
+                              focusNode: _passFocusNode,
+                              keyboardType: TextInputType.visiblePassword,
+                              textInputAction: TextInputAction.done,
+                              obscureText: true, // You can add toggle later
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: AppColors.textBlack,
+                              ),
+                              decoration: context.primaryInputDecoration
+                                  .copyWith(
+                                    prefixIcon: const Icon(
+                                      Icons.lock_outline,
+                                      color: Color(0xFF9CA3AF),
+                                    ),
+                                    hintText: "password",
+                                    filled: true,
+                                    fillColor: const Color(0xFFF3F4F6),
+                                  ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Password is required';
+                                }
+                                return null;
+                              },
+                              onFieldSubmitted: (_) => _submit(),
+                              autofillHints: const [AutofillHints.password],
+                            ),
+
+                            // Forgot Password
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
                                 onPressed: () {
-                                  // Navigate to Register
+                                  // Navigate to Forgot Password
                                 },
-                                child: const Text(
-                                  'Register Now',
+                                child: Text(
+                                  'Forgot Password',
                                   style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.primaryBlue,
                                     fontSize: 14,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
 
-                          const SizedBox(height: 40),
-                        ],
+                            // Login Button
+                            PrimaryButton(
+                              height: 56,
+                              onApiPressed: () {
+                                return _submit();
+                              },
+                              text: 'Login',
+                            ),
+
+                            const SizedBox(height: 32),
+
+                            // OR Divider
+                            const Row(
+                              children: [
+                                Expanded(
+                                  child: Divider(
+                                    thickness: 1,
+                                    color: Color(0xFF9CA3AF),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  child: Text(
+                                    'OR',
+                                    style: TextStyle(color: Color(0xFF5D6A85)),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Divider(
+                                    thickness: 1,
+                                    color: Color(0xFF9CA3AF),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 32),
+
+                            // Social Buttons
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                _socialButton('assets/images/fb.png'),
+                                const SizedBox(width: 32),
+                                _socialButton('assets/images/google.png'),
+                                const SizedBox(width: 32),
+                                _socialButton('assets/images/insta.png'),
+                              ],
+                            ),
+
+                            const SizedBox(height: 60), // Bottom spacing
+                            // Register Link
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Don't have an account?",
+                                  style: TextStyle(
+                                    color: Color(0xFF6B7280),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Get.to(() => RegisterEmailScreen());
+                                  },
+                                  child: const Text(
+                                    'Register Now',
+                                    style: TextStyle(
+                                      color: AppColors.primaryBlue,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 40),
+                          ],
+                        ),
                       ),
                     ),
                   ),
