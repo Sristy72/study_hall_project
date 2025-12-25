@@ -5,6 +5,7 @@ import 'package:study_hall_project/core/theme/app_colors.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/core/utils/debug_print.dart';
 import 'package:study_hall_project/features/auth/controller/auth_controller.dart';
+import 'package:study_hall_project/features/auth/screens/forgot_password_screen.dart';
 import 'package:study_hall_project/features/auth/screens/register_email_screen.dart';
 import 'package:study_hall_project/features/home/screens/home_screen.dart';
 import 'package:study_hall_project/navigation_menu.dart';
@@ -170,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               alignment: Alignment.centerRight,
                               child: TextButton(
                                 onPressed: () {
-                                  // Navigate to Forgot Password
+                                  Get.to(() => ForgotPasswordScreen());
                                 },
                                 child: Text(
                                   'Forgot Password',

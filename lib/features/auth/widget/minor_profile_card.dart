@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'package:study_hall_project/features/auth/screens/edit_minor.dart';
 
 
