@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart'; // For date formatting
 import 'package:flutx_core/flutx_core.dart';
+import 'package:study_hall_project/core/common/constants/back_button.dart';
 import 'package:study_hall_project/core/theme/app_colors.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/core/theme/input_decoration_extensions.dart';
+import 'package:study_hall_project/features/auth/screens/add_minor_screen.dart';
+import 'package:study_hall_project/features/auth/screens/verification_code_screen.dart';
+
+import '../widget/minor_profile_card.dart';
 
 class RegisterInfoScreen extends StatefulWidget {
   final String email;
@@ -124,6 +130,105 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.08),
+                blurRadius: 12,
+                offset: const Offset(0, -4), // 👈 top shadow
+              ),
+            ],
+          ),
+          child: SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(18, 12, 18, 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  MinorProfileCard(
+                    photoUrl: 'assets/images/add_minor.jpg', // Replace with your actual image URL or use AssetImage
+                    label: 'Minor 1',
+                    name: 'Sara Lim',
+                    isFemale: true, // true for female icon, false for male
+                    birthDate: '13 / 05 / 2010',
+                  ),
+                  SizedBox(height: 8,),
+                  // + Add Minors Button
+                  SizedBox(
+                    height: 55,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => const AddMinorScreen());
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFDBEAFE),
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 0, // important
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            '+',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF3B82F6),
+                              height: 1,
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          Text(
+                            'Add Minors',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF3B82F6),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(height: 13),
+
+                  // Register Button
+                  SizedBox(
+                    height: 55,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: (){Get.to(() => VerificationCodeScreen());},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primaryBlue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        elevation: 0,
+                      ),
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       body: Container(
         decoration: AppDecorations.backgroundGradient,
         child: SafeArea(
@@ -144,14 +249,20 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const BackButton(color: Colors.black),
+                            Transform.translate(
+                              offset: const Offset(0, -8), // move up by 6px
+                              child: CustomBackButton(),
+                            ),
+
 
                             const SizedBox(height: 20),
-                            const Text(
-                              'Register Your Account',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
+                            Center(
+                              child: const Text(
+                                'Register Your Account',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
 
@@ -379,33 +490,6 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                             ),
 
                             const SizedBox(height: 32),
-
-                            // Submit Button (You can replace with PrimaryButton)
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                onPressed: _submit,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primaryBlue,
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 16,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                                child: const Text(
-                                  'Register',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 40),
                           ],
                         ),
                       ),
