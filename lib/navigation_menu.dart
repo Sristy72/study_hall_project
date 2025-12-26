@@ -3,6 +3,7 @@ import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
+import 'features/home/screens/home_screen.dart';
 
 class CustomBottomNav extends StatefulWidget {
   const CustomBottomNav({super.key});
@@ -12,80 +13,89 @@ class CustomBottomNav extends StatefulWidget {
 }
 
 class _CustomBottomNavState extends State<CustomBottomNav> {
-  int selectedIndex = 1;
+  int selectedIndex = 0;
+
+  final List<Widget> _pages = const [
+    HomeScreen(),           // index 0 → Home
+    Center(child: Text("Learning Page")),
+    Center(child: Text("Chat Page")),
+    Center(child: Text("Profile Page")),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.grey.shade200,
-      body: const Center(child: Text("Page Content")),
-        bottomNavigationBar: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.bottomCenter,
-          children: [
-            // Shadow layer
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                height: 90,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1  ), // Shadow color
-                      blurRadius: 25, // Softness of the shadow
-                      spreadRadius: 5, // How wide the shadow spreads
-                      offset: const Offset(0, -5), // Move shadow slightly upwards
-                    ),
-                  ],
-                ),
+      body: IndexedStack(
+        index: selectedIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.bottomCenter,
+        children: [
+          // Shadow layer
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 90,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 25,
+                    spreadRadius: 5,
+                    offset: const Offset(0, -5),
+                  ),
+                ],
               ),
             ),
+          ),
 
-            // Actual nav bar
-            ClipPath(
-              clipper: BottomNavClipper(),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 35),
-                height: 90,
-                color: Colors.white,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _navItem(Images.home, "Home", 0),
-                    _navItem(Images.bookmark, "Learning", 1),
-                    const SizedBox(width: 40),
-                    _navItem(Images.message, "Chat", 2),
-                    _navItem(Images.user, "Profile", 3),
-                  ],
-                ),
+          // Actual nav bar
+          ClipPath(
+            clipper: BottomNavClipper(),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 35),
+              height: 90,
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _navItem(Images.home, "Home", 0),
+                  _navItem(Images.bookmark, "Learning", 1),
+                  const SizedBox(width: 40),
+                  _navItem(Images.message, "Chat", 2),
+                  _navItem(Images.user, "Profile", 3),
+                ],
               ),
             ),
+          ),
 
-            // Floating Add Button
-            Positioned(
-              bottom: 57,
-              child: Container(
-                height: 64,
-                width: 64,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFC9A28),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xFFFC7C39).withOpacity(0.4),
-                      blurRadius: 20,
-                      spreadRadius: 5, // How wide the shadow spreads
-                      offset: const Offset(0, 7),
-                    ),
-                  ],
-                ),
-                child: const Icon(Icons.add, color: Colors.white, size: 32),
+          // Floating Add Button (unchanged)
+          Positioned(
+            bottom: 57,
+            child: Container(
+              height: 64,
+              width: 64,
+              decoration: BoxDecoration(
+                color: const Color(0xFFFC9A28),
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFFFC7C39).withOpacity(0.4),
+                    blurRadius: 18,
+                    spreadRadius: 5,
+                    offset: const Offset(0, 7),
+                  ),
+                ],
               ),
+              child: const Icon(Icons.add, color: Colors.white, size: 32),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 

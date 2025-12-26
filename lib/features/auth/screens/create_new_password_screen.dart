@@ -4,6 +4,7 @@ import 'package:flutx_core/core/validation/validators.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:study_hall_project/features/auth/screens/otp_verify_forget_pass.dart';
+import 'package:study_hall_project/features/auth/widget/password_change_dialog.dart';
 
 import '../../../core/common/constants/back_button.dart';
 import '../../../core/theme/app_colors.dart';
@@ -167,7 +168,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: (){Get.to(() => OtpVerifyForgetPass());},
+                                onPressed: (){showPassSuccessDialog(context);},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.primaryBlue,
                                   shape: RoundedRectangleBorder(
