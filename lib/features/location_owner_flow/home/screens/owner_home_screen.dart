@@ -4,6 +4,7 @@ import 'package:study_hall_project/features/location_owner_flow/home/widget/pane
 import '../../../../core/common/constants/notification_button.dart';
 import '../../../../core/theme/app_decorations.dart';
 import '../../../student_flow/home/widget/categoryItem.dart';
+import '../../withdraw/widget/trancaction_item.dart';
 import '../widget/recent_session.dart';
 
 class OwnerHomeScreen extends StatefulWidget {
@@ -104,7 +105,7 @@ class _OwnerHomeScreenState extends State<OwnerHomeScreen> {
                         ],
                       );
                     },
-                  )
+                  ),
                 ],
               ),
             ),
