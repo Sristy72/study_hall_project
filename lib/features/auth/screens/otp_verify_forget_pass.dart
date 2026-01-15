@@ -1,13 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/auth/screens/create_new_password_screen.dart';
-import 'package:study_hall_project/features/auth/widget/dialog.dart';
 
-import '../../../core/common/constants/back_button.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_decorations.dart';
+
+import '../../../../core/common/constants/back_button.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decorations.dart';
 import '../widget/pincode.dart';
+import 'create_new_password_screen.dart';
 
 class OtpVerifyForgetPass extends StatefulWidget {
   const OtpVerifyForgetPass({super.key});

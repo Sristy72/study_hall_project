@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutx_core/core/validation/validators.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:study_hall_project/features/auth/screens/otp_verify_forget_pass.dart';
-import 'package:study_hall_project/features/auth/widget/password_change_dialog.dart';
 
-import '../../../core/common/constants/back_button.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_decorations.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
+import '../../../../core/common/constants/back_button.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decorations.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
+import '../widget/password_change_dialog.dart';
 
 class CreateNewPasswordScreen extends StatefulWidget {
   const CreateNewPasswordScreen({super.key});

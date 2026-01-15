@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		mHi8yjIToboZQIsnQGWYtwKZCK4=
+		KTb6uZqG337a7RELhPgSkhFJrQg=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -40,6 +40,10 @@
 		<data>
 		H1P0UXRqvrsnKB/819wpl3msuc4=
 		</data>
+		<key>flutter_assets/assets/icon/income.svg</key>
+		<data>
+		Y9UF0mbg5VSR0xEU8D/vLsvboZg=
+		</data>
 		<key>flutter_assets/assets/icon/message.svg</key>
 		<data>
 		QNER9LiaWFtd8nJWDlLx2TiQVgI=
@@ -55,6 +59,10 @@
 		<key>flutter_assets/assets/icon/user.svg</key>
 		<data>
 		u3Noe9/uBKegOTvwsnzO+7vQ+ZA=
+		</data>
+		<key>flutter_assets/assets/icon/withdraw.svg</key>
+		<data>
+		A1pFq1W/ZYacR5nOB/qLG8TtVJ0=
 		</data>
 		<key>flutter_assets/assets/images/Frame.png</key>
 		<data>
@@ -95,6 +103,10 @@
 		<key>flutter_assets/assets/images/exercise.png</key>
 		<data>
 		gphR82UlYAxEIhXDnFRr4BBXF6I=
+		</data>
+		<key>flutter_assets/assets/images/f6c33e5ec09e0bab5202dd03e736b34c0d9ba19c.jpg</key>
+		<data>
+		9sM+XsCeC6tSAt0D5zazTA2boZw=
 		</data>
 		<key>flutter_assets/assets/images/fb.png</key>
 		<data>
@@ -140,10 +152,6 @@
 		<data>
 		N3iSX8z9okBf8BT8piK2D/8gYgk=
 		</data>
-		<key>flutter_assets/assets/images/p1.png</key>
-		<data>
-		C5c4zWsx2ChCNxmUPIjxRdcyJRA=
-		</data>
 		<key>flutter_assets/assets/images/p2.png</key>
 		<data>
 		AjuFFOBaKRF/UpUl0BElREAQYXw=
@@ -164,6 +172,10 @@
 		<data>
 		h2cmGDWEMXvh23LqdPqs17gBdWs=
 		</data>
+		<key>flutter_assets/assets/images/star.png</key>
+		<data>
+		sGexfKwEkbg6x9HoQSL/sQhghjw=
+		</data>
 		<key>flutter_assets/assets/images/writing.png</key>
 		<data>
 		nkWkWFYx2158KK6Wxw83z0n+MbM=
@@ -178,7 +190,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		wG6IYzl4rEF7laX6Qy2dIN9i+RQ=
+		GXdBsVQChZo7LRPFoW4yMNlNsz0=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -203,7 +215,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VP51nOVIITwlJ2NlNdAQmAcXctPWAAX7MOZyvbxEzUo=
+			kc3T9XE4ydKhOFrmIniaP/Isy57PIbRSpNYyPOC3Cdc=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -255,6 +267,13 @@
 			Pf5GUVQ0Xxonn1OnTS+pjFf8Q8eEh1p3cqOrAC6+sCg=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/icon/income.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WDaMjZ6k0OHgIzdLgfkpTf/HTkhhmPvulE9SbWrfyTg=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/icon/message.svg</key>
 		<dict>
 			<key>hash2</key>
@@ -281,6 +300,13 @@
 			<key>hash2</key>
 			<data>
 			xrHkOPAJUj8E+wsDMIIXnWQg1iQBbvo+SicRqS/UTxg=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/icon/withdraw.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			uGMfzRZkCXXHrG+QCVau46npijZvA16T0Z77IHOF8PU=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/Frame.png</key>
@@ -351,6 +377,13 @@
 			<key>hash2</key>
 			<data>
 			HDBnR7ibP6tjFhc0Hkhv7oI9dJZF6TEYfXb2OFg8OTU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/f6c33e5ec09e0bab5202dd03e736b34c0d9ba19c.jpg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2Xxay3eGgZQsTFCql5oq642KB8xwePXAMm7/FMWLsSA=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/fb.png</key>
@@ -430,13 +463,6 @@
 			NLI4Q1SwzZXfAf656XdVaIQDx2PYou3TnQhIPtmgW+0=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/images/p1.png</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			LU7x6bC/HuL8jS6hpc2i0+qvWFSLpu+l6qnlRyl0+Ow=
-			</data>
-		</dict>
 		<key>flutter_assets/assets/images/p2.png</key>
 		<dict>
 			<key>hash2</key>
@@ -472,6 +498,13 @@
 			E0UEIcJMb3xFFDvkfmZNDf5BnslAfTYjg2UVuKOuiAs=
 			</data>
 		</dict>
+		<key>flutter_assets/assets/images/star.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0z4m3uDxhhJCC9nYc9US5JQDfx5GRBiDcqPQ2wVygpM=
+			</data>
+		</dict>
 		<key>flutter_assets/assets/images/writing.png</key>
 		<dict>
 			<key>hash2</key>
@@ -497,7 +530,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9oUNn1GyjA+F0gOC7pksL6gda13iEi3VhjepOVs8g7U=
+			4EljYJeT75vhxd0z91ZRiNDbl8oNEwzcmKbfcKCSqXI=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

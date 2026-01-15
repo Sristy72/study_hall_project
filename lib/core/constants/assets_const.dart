@@ -36,6 +36,8 @@ class Images {
   static const String message = '$_base1/message.svg';
   static const String user = '$_base1/user.svg';
   static const String add = '$_base1/add.svg';
+  static const String income = '$_base1/income.svg';
+  static const String withdraw = '$_base1/withdraw.svg';
 
   static const String category = '$_base1/category.svg';
   static const String orders = '$_base1/orders.svg';

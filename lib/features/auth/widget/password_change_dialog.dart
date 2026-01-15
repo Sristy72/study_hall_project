@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/auth/screens/login_screen.dart';
 
-import '../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../screens/login_screen.dart';
 
 void showPassSuccessDialog(BuildContext context) {
   showDialog(

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:study_hall_project/core/common/constants/notification_button.dart';
 import 'package:study_hall_project/core/common/constants/search_button.dart';
 import 'package:study_hall_project/core/constants/assets_const.dart';
 import 'package:study_hall_project/core/constants/svg_image.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
-import 'package:study_hall_project/features/home/screens/all_category_screen.dart';
-
-import '../../../core/common/constants/back_button.dart';
 import '../widget/categoryItem.dart';
+import 'all_category_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
