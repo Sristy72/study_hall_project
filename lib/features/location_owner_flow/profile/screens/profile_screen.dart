@@ -4,6 +4,7 @@ import 'package:study_hall_project/features/location_owner_flow/profile/screens/
 import 'package:study_hall_project/features/location_owner_flow/profile/screens/notification_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/profile/screens/privacy_policy_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/profile/screens/terms_and_condition_screen.dart';
+import 'package:study_hall_project/features/profile/screens/change_password_screen.dart';
 
 import '../../../../core/common/constants/notification_button.dart';
 import '../../../../core/theme/app_decorations.dart';
@@ -155,6 +156,13 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                   image: 'assets/images/graduation-cap.png',
                   title: 'Switch to Student account',
                   onTap: () {},
+                ),
+                _buildListTile(
+                  image: 'assets/images/pending.png',
+                  title: 'Change Password',
+                  onTap: () {
+                    Get.to(() => const ChangePasswordScreen());
+                  },
                 ),
                 _buildListTile(
                   image: 'assets/images/face-smile.png',
