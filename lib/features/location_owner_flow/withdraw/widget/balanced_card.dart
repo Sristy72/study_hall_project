@@ -1,60 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class BalanceCard extends StatelessWidget {
+import '../screens/withdraw_screen.dart';
+
+class BalanceCard extends StatefulWidget {
   const BalanceCard({super.key});
 
+  @override
+  State<BalanceCard> createState() => _BalanceCardState();
+}
+
+class _BalanceCardState extends State<BalanceCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 180, // typical height for such cards
+      height: 180,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color(0xFF3B82F6), // Starting blue
-            Color(0xFF459D96), // Ending green
-          ], stops: [0.0, 4],
+            Color(0xFF3B82F6),
+            Color(0xFF459D96),
+          ],
+          stops: [0.0, 1.0], // ← fixed invalid stop value (was 4)
         ),
       ),
       child: Stack(
         children: [
-          // Background decorative circles
+          // Decorative circles
           Positioned(
             right: -50,
             top: -80,
-            child: Container(
-              width: 206,
-              height: 206,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.2),
-                border: Border.all(
-                    color: Colors.white.withOpacity(0.4),
-                    width: 2
-                )
-              ),
-            ),
+            child: _buildCircle(),
           ),
           Positioned(
             right: -25,
             bottom: -80,
-            child: Container(
-              width: 206,
-              height: 206,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.2),
-                  border: Border.all(
-                      color: Colors.white.withOpacity(0.4),
-                    width: 2
-                  )
-              ),
-            ),
+            child: _buildCircle(),
           ),
-
 
           // Main content
           Padding(
@@ -62,10 +48,9 @@ class BalanceCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Top row - Label + Percentage badge
+                // Header row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: const [
@@ -86,7 +71,7 @@ class BalanceCard extends StatelessWidget {
                       ],
                     ),
 
-                    // Percentage pill
+                    // Percentage badge
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12,
@@ -96,9 +81,9 @@ class BalanceCard extends StatelessWidget {
                         color: Colors.black.withOpacity(0.25),
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.trending_up_rounded,
                             color: Colors.white,
@@ -121,7 +106,7 @@ class BalanceCard extends StatelessWidget {
 
                 const Spacer(),
 
-                // Balance amount
+                // Big balance
                 const Text(
                   '\$12,000,000.00',
                   style: TextStyle(
@@ -135,49 +120,52 @@ class BalanceCard extends StatelessWidget {
 
                 const Spacer(),
 
-                Container(decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 1,
+                // Withdraw button (fixed)
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const WithdrawScreen());
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 1.2,
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Text(
+                      'Withdraw',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(8)
                 ),
-                  child: TextButton(onPressed: (){}, style: TextButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-
-                  ), child: Text('Withdraw', style: TextStyle(color: Color(0xFFFFFFFF)),)),
-                )
-
-                // // Withdraw button
-                // Container(
-                //   padding: const EdgeInsets.symmetric(
-                //     horizontal: 28,
-                //     vertical: 12,
-                //   ),
-                //   decoration: BoxDecoration(
-                //     color: Colors.white,
-                //     borderRadius: BorderRadius.circular(30),
-                //     boxShadow: [
-                //       BoxShadow(
-                //         color: Colors.black.withOpacity(0.12),
-                //         blurRadius: 8,
-                //         offset: const Offset(0, 3),
-                //       ),
-                //     ],
-                //   ),
-                //   child: const Text(
-                //     'Withdraw',
-                //     style: TextStyle(
-                //       color: Color(0xFF2563EB),
-                //       fontSize: 15,
-                //       fontWeight: FontWeight.w600,
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCircle() {
+    return Container(
+      width: 206,
+      height: 206,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white.withOpacity(0.18),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.35),
+          width: 2,
+        ),
       ),
     );
   }

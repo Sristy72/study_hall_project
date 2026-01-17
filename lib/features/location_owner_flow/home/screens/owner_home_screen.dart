@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:study_hall_project/features/location_owner_flow/home/screens/notification_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/home/widget/panel_card.dart';
 
 import '../../../../core/common/constants/notification_button.dart';
@@ -80,7 +82,7 @@ class _OwnerHomeScreenState extends State<OwnerHomeScreen> {
                       ),
                       const Spacer(),
                       const SizedBox(width: 12),
-                      const NotificationButton()
+                       NotificationButton(onTap: (){Get.to(() => NotificationScreen());},)
                     ],
                   ),
 

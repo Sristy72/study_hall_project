@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'package:study_hall_project/features/location_owner_flow/home/screens/owner_home_screen.dart';
+import 'package:study_hall_project/features/location_owner_flow/income/screens/income_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/withdraw/screens/withdrawal_screen.dart';
+import 'package:study_hall_project/features/student_flow/profile/screens/profile_screen.dart';
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
+import 'features/location_owner_flow/profile/screens/profile_screen.dart';
 
 class CustomBottomNavBarOwner extends StatefulWidget {
   const CustomBottomNavBarOwner({super.key});
@@ -18,9 +21,9 @@ class _CustomBottomNavBarOwnerState extends State<CustomBottomNavBarOwner> {
 
   final List<Widget> _pages = const [
     Center(child: OwnerHomeScreen(),),
-    Center(child: Text("Income Screen", style: TextStyle(fontSize: 28))),
+    Center(child: IncomeScreen()),
     Center(child: WithdrawalScreen()),
-    Center(child: Text("Profile Screen", style: TextStyle(fontSize: 28))),
+    Center(child: ProfileSettingScreen()),
   ];
 
   @override

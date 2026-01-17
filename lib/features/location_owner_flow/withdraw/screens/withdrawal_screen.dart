@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:study_hall_project/features/location_owner_flow/withdraw/widget/balanced_card.dart';
 
 import '../../../../core/common/constants/back_button.dart';
 import '../widget/bottom_sheet.dart';
 import '../widget/trancaction_item.dart';
+import '../widget/withdrawl_detail.dart';
 
 class WithdrawalScreen extends StatefulWidget {
   const WithdrawalScreen({super.key});
@@ -80,63 +80,201 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Completed",
+                        status: "Completed", onTap: () { showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => WithdrawalDetailBottomSheet(
+                          requestId: "W20210615000001",
+                          requestDate: "22/06/2025 15:30:10",
+                          status: "Completed",
+                          amount: 100.00,
+                          bankName: "Bank of America",
+                          accountNumber: "00025232431001",
+                          accountHolder: "NGAN PHAM",
+                        ),
+                      ); },
                       ),
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Pending",
+                        status: "Pending", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Pending",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                          ),
+                        );
+                      },
                       ),
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Rejected",
+                        status: "Rejected", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Rejected",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                            rejectReason: 'your request is invalid',
+                          ),
+                        );
+                      },
                       ),
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Completed",
+                        status: "Completed", onTap: () { showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => WithdrawalDetailBottomSheet(
+                          requestId: "W20210615000001",
+                          requestDate: "22/06/2025 15:30:10",
+                          status: "Completed",
+                          amount: 100.00,
+                          bankName: "Bank of America",
+                          accountNumber: "00025232431001",
+                          accountHolder: "NGAN PHAM",
+                        ),
+                      ); },
                       ),
+
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Pending",
+                        status: "Pending", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Pending",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                          ),
+                        );
+                      },
                       ),
+
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Rejected",
+                        status: "Rejected", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Rejected",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                            rejectReason: 'your request is invalid',
+                          ),
+                        );
+                      },
                       ),
+
+
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Completed",
+                        status: "Completed", onTap: () { showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => WithdrawalDetailBottomSheet(
+                          requestId: "W20210615000001",
+                          requestDate: "22/06/2025 15:30:10",
+                          status: "Completed",
+                          amount: 100.00,
+                          bankName: "Bank of America",
+                          accountNumber: "00025232431001",
+                          accountHolder: "NGAN PHAM",
+                        ),
+                      ); },
                       ),
+
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Pending",
+                        status: "Pending", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Pending",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                          ),
+                        );
+                      },
                       ),
+
                       TransactionItem(
                         id: "W20210615150000001",
                         amount: 400.00,
                         time: "4:20 PM",
                         date: "Aug 13, 2025",
-                        status: "Rejected",
+                        status: "Rejected", onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) => WithdrawalDetailBottomSheet(
+                            requestId: "W20210615000001",
+                            requestDate: "22/06/2025 15:30:10",
+                            status: "Rejected",
+                            amount: 100.00,
+                            bankName: "Bank of America",
+                            accountNumber: "00025232431001",
+                            accountHolder: "NGAN PHAM",
+                            rejectReason: 'your request is invalid',
+                          ),
+                        );
+                      },
                       ),
                       // ... more items
                     ],

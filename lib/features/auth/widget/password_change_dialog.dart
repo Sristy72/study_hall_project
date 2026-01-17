@@ -4,199 +4,125 @@ import 'package:get/get.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../screens/login_screen.dart';
 
-void showPassSuccessDialog(BuildContext context) {
+// ── Reusable Success Dialog ────────────────────────────────────────────────
+void showPasswordSuccessDialog(
+    BuildContext context, {
+      required String message,
+      required String buttonText,
+      required VoidCallback onTap
+    }) {
   showDialog(
     context: context,
     barrierDismissible: true,
-    builder: (BuildContext context) {
-      return const PasswordChangeSuccessDialog();
-    },
+    builder: (context) => PasswordChangeDialog(
+      isSuccess: true,
+      title: 'Congratulation!',
+      message: message,
+      imagePath: 'assets/images/Frame.png', buttonText: buttonText, onTap: onTap,
+    ),
   );
 }
 
-class PasswordChangeSuccessDialog extends StatelessWidget {
-  const PasswordChangeSuccessDialog({super.key});
+// ── Reusable Failure Dialog ────────────────────────────────────────────────
+void showPasswordFailDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    barrierDismissible: true,
+    builder: (context) => PasswordChangeDialog(
+      isSuccess: false,
+      title: 'Opps...',
+      message: 'Create new password has failed. Please try again.',
+      imagePath: 'assets/images/pass_fail_dialog.png', buttonText: '', onTap: () {  },
+    ),
+  );
+}
+
+// ── Single Reusable Dialog Widget ──────────────────────────────────────────
+class PasswordChangeDialog extends StatelessWidget {
+  final bool isSuccess;
+  final String title;
+  final String message;
+  final String buttonText;
+  final String imagePath;
+  final VoidCallback onTap;
+
+  const PasswordChangeDialog({
+    super.key,
+    required this.isSuccess,
+    required this.title,
+    required this.message,
+    required this.imagePath,
+    required this.buttonText,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: [
-        // Main dialog content
         Dialog(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24.0),
+            borderRadius: BorderRadius.circular(24),
           ),
           child: Container(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(20),
             constraints: const BoxConstraints(maxWidth: 340),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Illustration
                 Image.asset(
-                  'assets/images/Frame.png', // Replace with your actual path
+                  imagePath,
                   width: double.infinity,
-                  height: 260,
+                  height: 240,
                   fit: BoxFit.contain,
                 ),
 
-                const SizedBox(height: 32),
+                const SizedBox(height: 28),
 
-                const Text(
-                  'Congratulation !',
+                // Title
+                Text(
+                  title,
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
+                    color: isSuccess ? Colors.black87 : Colors.red.shade700,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+
+                const SizedBox(height: 12),
+
+                // Message
+                Text(
+                  message,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    height: 1.4,
                     color: Colors.black87,
                   ),
                   textAlign: TextAlign.center,
                 ),
 
-                const SizedBox(height: 12),
-                const Text(
-                  'Your Password has been updated Successfully',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 24),
-
-                SizedBox(
-                  height: 55,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.to(() => LoginScreen());
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primaryBlue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'Back to Login',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 30), // Extra space to prevent overlap with the cross button
-              ],
-            ),
-          ),
-        ),
-
-        // Cross button at the bottom
-        Positioned(
-          bottom: 10, // Adjust this value to fine-tune the position
-          child: GestureDetector(
-            onTap: () {
-              Get.back();
-            },
-            child: Container(
-              width: 64,
-              height: 64,
-              decoration:  BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.white,
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.black26,
-                //     blurRadius: 10,
-                //     offset: Offset(0, 4),
-                //   ),
-                // ],
-              ),
-              child: const Icon(
-                Icons.close,
-                color: Color(0xFF07335B),
-                size: 28,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-
-class PasswordChangeFailDialog extends StatelessWidget {
-  const PasswordChangeFailDialog({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        // Main dialog content
-        Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24.0),
-          ),
-          child: Container(
-            padding: const EdgeInsets.all(18.0),
-            constraints: const BoxConstraints(maxWidth: 340),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  'assets/images/pass_fail_dialog.png', // Replace with your actual path
-                  width: double.infinity,
-                  height: 260,
-                  fit: BoxFit.contain,
-                ),
-
                 const SizedBox(height: 32),
 
-                const Text(
-                  'Opps...',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 12),
-                const Text(
-                  'Create new password has failed please try again',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 24),
-
+                // Action Button
                 SizedBox(
-                  height: 55,
+                  height: 54,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Get.to(() => LoginScreen());
-                    },
+                    onPressed: onTap,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryBlue,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(14),
                       ),
                       elevation: 0,
                     ),
-                    child: const Text(
-                      'Back to Login',
+                    child:  Text(
+                      buttonText,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -206,35 +132,33 @@ class PasswordChangeFailDialog extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 30), // Extra space to prevent overlap with the cross button
+                const SizedBox(height: 40),
               ],
             ),
           ),
         ),
 
-        // Cross button at the bottom
+        // Close Button (floating at bottom)
         Positioned(
-          bottom: 10, // Adjust this value to fine-tune the position
+          bottom: 8,
           child: GestureDetector(
-            onTap: () {
-              Get.back();
-            },
+            onTap: () => Get.back(),
             child: Container(
-              width: 64,
-              height: 64,
-              decoration:  BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
                 color: Colors.white,
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.black26,
-                //     blurRadius: 10,
-                //     offset: Offset(0, 4),
-                //   ),
-                // ],
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.12),
+                    blurRadius: 12,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
               child: const Icon(
-                Icons.close,
+                Icons.close_rounded,
                 color: Color(0xFF07335B),
                 size: 28,
               ),
