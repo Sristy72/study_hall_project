@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/location_owner_flow/home/screens/notification_screen.dart';
+import 'package:study_hall_project/features/location_owner_flow/profile/screens/language_selection_screen.dart';
+import 'package:study_hall_project/features/location_owner_flow/profile/screens/notification_screen.dart';
+import 'package:study_hall_project/features/location_owner_flow/profile/screens/privacy_policy_screen.dart';
+import 'package:study_hall_project/features/location_owner_flow/profile/screens/terms_and_condition_screen.dart';
 
 import '../../../../core/common/constants/notification_button.dart';
 import '../../../../core/theme/app_decorations.dart';
+import '../widgets/refer_tutor_dialog.dart';
+import '../widgets/show_dialog.dart';
 
 class ProfileSettingScreen extends StatefulWidget {
   const ProfileSettingScreen({super.key});
@@ -52,63 +57,83 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                 const SizedBox(height: 24),
 
                 /// ===== Profile Section =====
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Row(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          'assets/images/cb1a2b0d21866a9ca96f2f09c68d61371e199ac9.jpg',
-                          width: 72,
-                          height: 72,
-                          fit: BoxFit.cover,           // usually looks best with rounded corners
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    border: Border.all(color: Color(0xFFE5E7EB)),
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start, // ⭐ FIX
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.asset(
+                            'assets/images/cb1a2b0d21866a9ca96f2f09c68d61371e199ac9.jpg',
+                            width: 76,
+                            height: 76,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                const Text(
-                                  'John Steward',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Text(
+                                    'John Steward',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                Spacer(),
-                                IconButton(
-                                  icon: Container(height: 22,width:22,child: Image.asset('assets/images/Monotone edit.png')),
-                                  onPressed: () {},
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 4),
-                            const Text(
-                              'john@gmail.com',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400
+                                  const Spacer(),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: SizedBox(
+                                      height: 22,
+                                      width: 22,
+                                      child: Image.asset('assets/images/Monotone edit.png'),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            const SizedBox(height: 4,),
-                            Row(
-                              children: [
-                                Container(height: 14, width:14,child: Image.asset('assets/images/link-2.png')),
-                                SizedBox(width: 8,),
-                                Text('Facebook', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Color(0xFF2563EB)),)
-                              ],
-                            )
-                          ],
+                              Text(
+                                'john@gmail.com',
+                                style: TextStyle(
+                                  color: Color(0xFF374151),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    height: 14,
+                                    width: 14,
+                                    child: Image.asset('assets/images/link-2.png'),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  const Text(
+                                    'Facebook',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF2563EB),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-
-                    ],
+                      ],
+                    ),
                   ),
                 ),
 
@@ -117,24 +142,27 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                 /// ===== Account Details =====
                 _buildSectionHeader('Account Details'),
                 _buildListTile(
-                  icon: Icons.person_outline_rounded,
+                  image: 'assets/images/profile.png',
                   title: 'Personal Information',
                   onTap: () {},
                 ),
                 _buildListTile(
-                  icon: Icons.account_balance_wallet_outlined,
+                  image: 'assets/images/currency-dollar.png',
                   title: 'Beneficiary Information',
                   onTap: () {},
                 ),
                 _buildListTile(
-                  icon: Icons.school_outlined,
+                  image: 'assets/images/graduation-cap.png',
                   title: 'Switch to Student account',
                   onTap: () {},
                 ),
                 _buildListTile(
-                  icon: Icons.person_add_alt_1_outlined,
+                  image: 'assets/images/face-smile.png',
                   title: 'Refer a Tutor',
-                  onTap: () {},
+                  onTap: () {showDialog(
+                    context: context,
+                    builder: (context) => const ReferTutorDialog(),
+                  );},
                 ),
 
                 const SizedBox(height: 24),
@@ -142,14 +170,14 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                 /// ===== Application Settings =====
                 _buildSectionHeader('Application Settings'),
                 _buildListTile(
-                  icon: Icons.notifications_outlined,
+                  image: 'assets/images/bell.png',
                   title: 'Notification',
-                  onTap: () {},
+                  onTap: () {Get.to(() => NotificationScreen());},
                 ),
                 _buildListTile(
-                  icon: Icons.language,
+                  image: 'assets/images/globe.png',
                   title: 'Language',
-                  onTap: () {},
+                  onTap: () {Get.to(() => LanguageSelectionScreen());},
                 ),
 
                 const SizedBox(height: 24),
@@ -157,48 +185,60 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
                 /// ===== Help & Support =====
                 _buildSectionHeader('Help & Support'),
                 _buildListTile(
-                  icon: Icons.phone_outlined,
+                  image: 'assets/images/phone-plus.png',
                   title: 'Contact Us',
                   onTap: () {},
                 ),
                 _buildListTile(
-                  icon: Icons.description_outlined,
+                  image: 'assets/images/file-lines.png',
                   title: 'Terms and Conditions',
-                  onTap: () {},
+                  onTap: () {Get.to(() => TermsAndConditionsScreen());},
                 ),
                 _buildListTile(
-                  icon: Icons.privacy_tip_outlined,
+                  image: 'assets/images/eye.png',
                   title: 'Privacy Policy',
-                  onTap: () {},
+                  onTap: () {Get.to(() => PrivacyPolicyScreen());},
                 ),
 
                 const SizedBox(height: 40),
 
                 /// ===== Logout =====
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Material(
-                    color: const Color(0xFFFFEBEE),
+                  Material(
+                    color: const Color(0xFFFCE4EC),
                     borderRadius: BorderRadius.circular(16),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(16),
-                      onTap: () {},
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16),
+                      onTap: () async {
+                        final shouldLogout = await showLogoutDialog(context);
+
+                        if (shouldLogout == true) {
+                          // Perform logout logic here
+                          // e.g. await authService.signOut();
+                          // Navigator.pushReplacementNamed(context, '/login');
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
                         child: Center(
-                          child: Text(
-                            'Logout',
-                            style: TextStyle(
-                              color: Color(0xFFE57373),
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height:24, width:24, child: Image.asset('assets/images/box-arrow-left.png')),
+                              SizedBox(width: 8,),
+                              const Text(
+                                'Logout',
+                                style: TextStyle(
+                                  color: Color(0xFFE91E63),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
 
                 const SizedBox(height: 40),
               ],
@@ -210,37 +250,55 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
   }
 
   Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
-      child: Text(
-        title.toUpperCase(),
-        style: TextStyle(
-          color: Colors.grey[600],
-          fontSize: 13,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 0.8,
-        ),
+    return Text(
+      title,
+      style: TextStyle(
+        color: Color(0xFF111827),
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        //letterSpacing: 0.8,
       ),
     );
   }
 
   Widget _buildListTile({
-    required IconData icon,
+    required String image,
     required String title,
     required VoidCallback onTap,
   }) {
-    return ListTile(
-      leading: Icon(icon, color: Colors.grey[700], size: 26),
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Color(0xFFD1D5DB)),
+          borderRadius: BorderRadius.circular(12)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            leading: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFF9FAFB),
+                borderRadius: BorderRadius.circular(50)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Container(height: 22, width:22, child: Image.asset(image)),
+              ),
+            ),
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+            //contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+            onTap: onTap,
+          ),
         ),
       ),
-      trailing: const Icon(Icons.chevron_right, color: Colors.grey),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-      onTap: onTap,
     );
   }
 }

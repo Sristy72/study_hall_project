@@ -7,6 +7,7 @@ import '../../../../core/common/constants/notification_button.dart';
 import '../../../../core/theme/app_decorations.dart';
 import '../../../student_flow/home/widget/categoryItem.dart';
 import '../../withdraw/widget/trancaction_item.dart';
+import '../widget/booking.dart';
 import '../widget/recent_session.dart';
 
 class OwnerHomeScreen extends StatefulWidget {
@@ -101,12 +102,15 @@ class _OwnerHomeScreenState extends State<OwnerHomeScreen> {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          const OngoingCard(),
+                          OngoingCard(
+                            status: getStatusByIndex(index),
+                          ),
                           if (index < recentSessionsCount - 1)
                             const SizedBox(height: 16),
                         ],
                       );
                     },
+
                   ),
                 ],
               ),
@@ -116,4 +120,10 @@ class _OwnerHomeScreenState extends State<OwnerHomeScreen> {
       ),
     );
   }
+  BookingStatus getStatusByIndex(int index) {
+    if (index % 3 == 0) return BookingStatus.ongoing;
+    if (index % 3 == 1) return BookingStatus.finished;
+    return BookingStatus.cancelled;
+  }
+
 }
