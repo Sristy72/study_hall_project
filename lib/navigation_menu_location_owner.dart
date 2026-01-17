@@ -3,7 +3,6 @@ import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'package:study_hall_project/features/location_owner_flow/home/screens/owner_home_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/income/screens/income_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/withdraw/screens/withdrawal_screen.dart';
-import 'package:study_hall_project/features/student_flow/profile/screens/profile_screen.dart';
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
