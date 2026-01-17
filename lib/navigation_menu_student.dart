@@ -4,6 +4,7 @@ import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
 import 'features/student_flow/home/screens/home_screen.dart';
+import 'features/teachers_flow/profile/screens/profile_setting_screen.dart';
 
 class CustomBottomNav extends StatefulWidget {
   const CustomBottomNav({super.key});
@@ -19,7 +20,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
     HomeScreen(),           // index 0 → Home
     Center(child: Text("Learning Page")),
     Center(child: Text("Chat Page")),
-    Center(child: Text("Profile Page")),
+    TeacherProfileSettingScreen(),
   ];
 
   @override
