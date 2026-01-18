@@ -4,12 +4,13 @@ import 'package:get/get.dart';
 import 'package:study_hall_project/core/theme/app_colors.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/core/utils/debug_print.dart';
-import 'package:study_hall_project/features/auth/controller/auth_controller.dart';
-import 'package:study_hall_project/features/auth/screens/forgot_password_screen.dart';
 import 'package:study_hall_project/features/auth/screens/register_email_screen.dart';
-import 'package:study_hall_project/navigation_menu.dart';
-import '../../../core/common/widgets/button_widgets.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
+
+import '../../../../core/common/widgets/button_widgets.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
+import '../../../../navigation_menu_student.dart';
+import '../controller/auth_controller.dart';
+import 'forgot_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

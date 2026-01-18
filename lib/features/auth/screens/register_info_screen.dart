@@ -6,10 +6,11 @@ import 'package:study_hall_project/core/common/constants/back_button.dart';
 import 'package:study_hall_project/core/theme/app_colors.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/core/theme/input_decoration_extensions.dart';
-import 'package:study_hall_project/features/auth/screens/add_minor_screen.dart';
 import 'package:study_hall_project/features/auth/screens/verification_code_screen.dart';
 
+
 import '../widget/minor_profile_card.dart';
+import 'add_minor_screen.dart';
 
 class RegisterInfoScreen extends StatefulWidget {
   final String email;

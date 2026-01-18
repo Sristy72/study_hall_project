@@ -3,24 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutx_core/core/validation/validators.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:study_hall_project/features/auth/screens/otp_verify_forget_pass.dart';
-import 'package:study_hall_project/features/auth/widget/password_change_dialog.dart';
+import 'package:study_hall_project/features/auth/screens/login_screen.dart';
 
-import '../../../core/common/constants/back_button.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_decorations.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
+import '../../../../core/common/constants/back_button.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decorations.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
+import '../widget/password_change_dialog.dart';
 
 class CreateNewPasswordScreen extends StatefulWidget {
   const CreateNewPasswordScreen({super.key});
 
   @override
-  State<CreateNewPasswordScreen> createState() => _CreateNewPasswordScreenState();
+  State<CreateNewPasswordScreen> createState() =>
+      _CreateNewPasswordScreenState();
 }
 
 class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
   final TextEditingController _passTextController = TextEditingController();
-  final TextEditingController _confirmPassTextController = TextEditingController();
+  final TextEditingController _confirmPassTextController =
+      TextEditingController();
 
   final FocusNode _passTextFocus = FocusNode();
   final FocusNode _confirmPassTextFocus = FocusNode();
@@ -28,6 +30,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
   // Password visibility
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,16 +61,26 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                               ),
                             ),
 
-                            SizedBox(height: 32,),
-                            Text('Create New Password', textAlign: TextAlign.start, style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),),
+                            SizedBox(height: 32),
+                            Text(
+                              'Create New Password',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
 
                             Text(
                               'Your password must have 6-16 charctes',
-                              style: TextStyle(fontWeight: FontWeight.w400,
-                                  fontSize: 16,
-                                  color: Color(0xFF374151)),),
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                                color: Color(0xFF374151),
+                              ),
+                            ),
 
-                            SizedBox(height: 32,),
+                            SizedBox(height: 32),
 
                             // Password
                             Align(
@@ -88,25 +101,25 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                               textInputAction: TextInputAction.next,
                               decoration: context.primaryInputDecoration
                                   .copyWith(
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline,
-                                  color: Color(0xFF9CA3AF),
-                                ),
-                                hintText: "Enter strong password",
-                                filled: true,
-                                fillColor: const Color(0xFFF3F4F6),
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    _obscurePassword
-                                        ? Icons.visibility_off
-                                        : Icons.visibility,
-                                  ),
-                                  onPressed: () => setState(
+                                    prefixIcon: const Icon(
+                                      Icons.lock_outline,
+                                      color: Color(0xFF9CA3AF),
+                                    ),
+                                    hintText: "Enter strong password",
+                                    filled: true,
+                                    fillColor: const Color(0xFFF3F4F6),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        _obscurePassword
+                                            ? Icons.visibility_off
+                                            : Icons.visibility,
+                                      ),
+                                      onPressed: () => setState(
                                         () => _obscurePassword =
-                                    !_obscurePassword,
+                                            !_obscurePassword,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
                               validator: Validators.password,
                               onFieldSubmitted: (_) => FocusScope.of(
                                 context,
@@ -134,25 +147,25 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                               textInputAction: TextInputAction.done,
                               decoration: context.primaryInputDecoration
                                   .copyWith(
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline,
-                                  color: Color(0xFF9CA3AF),
-                                ),
-                                hintText: "Re-type your password",
-                                filled: true,
-                                fillColor: const Color(0xFFF3F4F6),
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    _obscureConfirmPassword
-                                        ? Icons.visibility_off
-                                        : Icons.visibility,
-                                  ),
-                                  onPressed: () => setState(
+                                    prefixIcon: const Icon(
+                                      Icons.lock_outline,
+                                      color: Color(0xFF9CA3AF),
+                                    ),
+                                    hintText: "Re-type your password",
+                                    filled: true,
+                                    fillColor: const Color(0xFFF3F4F6),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        _obscureConfirmPassword
+                                            ? Icons.visibility_off
+                                            : Icons.visibility,
+                                      ),
+                                      onPressed: () => setState(
                                         () => _obscureConfirmPassword =
-                                    !_obscureConfirmPassword,
+                                            !_obscureConfirmPassword,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
                               validator: (value) {
                                 if (value != _passTextController.text) {
                                   return 'Passwords do not match';
@@ -162,13 +175,21 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                               //onFieldSubmitted: (_) => _submit(),
                             ),
 
-                            SizedBox(height: 32,),
+                            SizedBox(height: 32),
 
                             SizedBox(
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: (){showPassSuccessDialog(context);},
+                                onPressed: () {
+                                  showPasswordSuccessDialog(
+                                    context,
+                                    message:
+                                        'Your Password has been updatedSuccessfully',
+                                    buttonText: 'Back to Login',
+                                    onTap: () {Get.to(() => LoginScreen());},
+                                  );
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.primaryBlue,
                                   shape: RoundedRectangleBorder(

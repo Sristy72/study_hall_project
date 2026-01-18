@@ -5,9 +5,10 @@ import 'package:study_hall_project/core/common/widgets/app_logo.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/features/auth/screens/register_info_screen.dart';
 
-import '../../../core/common/widgets/button_widgets.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
+
+import '../../../../core/common/widgets/button_widgets.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
 
 class RegisterEmailScreen extends StatefulWidget {
   const RegisterEmailScreen({super.key});

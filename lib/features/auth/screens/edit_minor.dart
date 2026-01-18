@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../../core/common/constants/back_button.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_decorations.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
-import '../../widget/add_minor_image.dart';
+import '../../../../core/common/constants/back_button.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decorations.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
+import '../../student_flow/widget/add_minor_image.dart';
 
 class EditMinorScreen extends StatefulWidget {
   const EditMinorScreen({super.key});

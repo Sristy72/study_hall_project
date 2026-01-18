@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutx_core/core/validation/validators.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:study_hall_project/features/auth/screens/otp_verify_forget_pass.dart';
-import 'package:study_hall_project/features/auth/screens/verification_code_screen.dart';
-
-import '../../../core/common/constants/back_button.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_decorations.dart';
-import '../../../core/theme/input_decoration_extensions.dart';
+import '../../../../core/common/constants/back_button.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decorations.dart';
+import '../../../../core/theme/input_decoration_extensions.dart';
+import 'otp_verify_forget_pass.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

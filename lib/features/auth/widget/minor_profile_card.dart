@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/auth/screens/edit_minor.dart';
 
+import '../screens/edit_minor.dart';
 
 class MinorProfileCard extends StatelessWidget {
   final String photoUrl;
