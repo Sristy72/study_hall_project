@@ -276,7 +276,6 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                         );
                       },
                       ),
-                      // ... more items
                     ],
                   ),
                 ],
