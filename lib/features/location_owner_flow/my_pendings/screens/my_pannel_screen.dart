@@ -40,7 +40,7 @@ class MyPanelScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(height: 16),
 
                   Container(
                     height: 1.5,
@@ -59,7 +59,6 @@ class MyPanelScreen extends StatelessWidget {
                       return _reviewSection();
                     }
                   }),
-
                 ],
               ),
             ),
@@ -69,11 +68,11 @@ class MyPanelScreen extends StatelessWidget {
     );
   }
 
-
-
   Widget _locationList() {
     return GestureDetector(
-      onTap: (){Get.to(() => LocationDetailScreen());},
+      onTap: () {
+        Get.to(() => LocationDetailScreen());
+      },
       child: ListView.builder(
         shrinkWrap: true, // ✅
         physics: const NeverScrollableScrollPhysics(),
@@ -95,7 +94,7 @@ class MyPanelScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
                     'assets/images/cafe.png', // replace with your image
-                    height:  90,
+                    height: 90,
                     width: 90,
                     fit: BoxFit.cover,
                   ),
@@ -187,7 +186,7 @@ class MyPanelScreen extends StatelessWidget {
         const SizedBox(height: 24),
         _allReviewsHeader(),
         const SizedBox(height: 12),
-        Expanded(child: _reviewsList()),
+        _reviewsList(),
       ],
     );
   }
@@ -418,6 +417,8 @@ class MyPanelScreen extends StatelessWidget {
     const itemCount = 3;
 
     return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: itemCount,
       itemBuilder: (_, index) {

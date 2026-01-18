@@ -5,6 +5,9 @@ import 'clipper.dart';
 import 'core/constants/svg_image.dart';
 import 'features/student_flow/home/screens/home_screen.dart';
 
+import 'features/student_flow/my_courses/screens/my_courses_wrapper.dart';
+import 'features/student_flow/profile/screens/main_profile_screen.dart';
+
 class CustomBottomNav extends StatefulWidget {
   const CustomBottomNav({super.key});
 
@@ -17,9 +20,9 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
   final List<Widget> _pages = const [
     HomeScreen(),           // index 0 → Home
-    Center(child: Text("Learning Page")),
+    MyCoursesWrapper(),     // index 1 → Learning (shows empty or courses)
     Center(child: Text("Chat Page")),
-    Center(child: Text("Profile Page")),
+    MainProfileScreen(),    // index 3 → Profile
   ];
 
   @override

@@ -3,7 +3,6 @@ import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'package:study_hall_project/features/location_owner_flow/home/screens/owner_home_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/income/screens/income_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/withdraw/screens/withdrawal_screen.dart';
-import 'package:study_hall_project/features/student_flow/profile/screens/profile_screen.dart';
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
@@ -13,14 +12,15 @@ class CustomBottomNavBarOwner extends StatefulWidget {
   const CustomBottomNavBarOwner({super.key});
 
   @override
-  State<CustomBottomNavBarOwner> createState() => _CustomBottomNavBarOwnerState();
+  State<CustomBottomNavBarOwner> createState() =>
+      _CustomBottomNavBarOwnerState();
 }
 
 class _CustomBottomNavBarOwnerState extends State<CustomBottomNavBarOwner> {
   int selectedIndex = 0;
 
   final List<Widget> _pages = const [
-    Center(child: OwnerHomeScreen(),),
+    OwnerHomeScreen(),
     Center(child: IncomeScreen()),
     Center(child: WithdrawalScreen()),
     Center(child: ProfileSettingScreen()),
@@ -29,10 +29,7 @@ class _CustomBottomNavBarOwnerState extends State<CustomBottomNavBarOwner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: selectedIndex,
-        children: _pages,
-      ),
+      body: IndexedStack(index: selectedIndex, children: _pages),
       bottomNavigationBar: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.bottomCenter,
@@ -73,7 +70,10 @@ class _CustomBottomNavBarOwnerState extends State<CustomBottomNavBarOwner> {
               ],
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(22), topRight: Radius.circular(22)),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(22),
+                topRight: Radius.circular(22),
+              ),
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 height: 90,
@@ -132,23 +132,23 @@ class _CustomBottomNavBarOwnerState extends State<CustomBottomNavBarOwner> {
               duration: const Duration(milliseconds: 200),
               child: isActive
                   ? Container(
-                key: ValueKey('indicator_$index'),
-                width: 20,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF3B82F6),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-              )
+                      key: ValueKey('indicator_$index'),
+                      width: 20,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF3B82F6),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    )
                   : Text(
-                label,
-                key: ValueKey('text_$index'),
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF4B5563),
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+                      label,
+                      key: ValueKey('text_$index'),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF4B5563),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
             ),
           ],
         ),
