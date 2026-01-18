@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_hall_project/features/location_owner_flow/my_pendings/screens/location_details_screen.dart';
 
+import '../../../../core/common/constants/back_button.dart';
 import '../controller/my_pannel_controller.dart';
 
 class MyPanelScreen extends StatelessWidget {
@@ -11,136 +13,169 @@ class MyPanelScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F7F7),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _appBar(),
-            const SizedBox(height: 12),
-            const Divider(
-              height: 2,
-              thickness: 4,
-              color: Color(0xFFE5E7EB), // light grey (matches UI)
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: SingleChildScrollView(
+              //padding: const EdgeInsets.all(18),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  /// 🔹 Header
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18.0, right: 18),
+                    child: Row(
+                      children: const [
+                        CustomBackButton2(),
+                        SizedBox(width: 16),
+                        Text(
+                          'My Panel',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 16,),
+
+                  Container(
+                    height: 1.5,
+                    color: const Color(
+                      0xFFE5E7EB,
+                    ), // very light gray - very popular now
+                  ),
+                  const SizedBox(height: 16),
+
+                  _segmentedControl(),
+                  const SizedBox(height: 16.5),
+                  Obx(() {
+                    if (controller.selectedTab.value == 0) {
+                      return _locationList();
+                    } else {
+                      return _reviewSection();
+                    }
+                  }),
+
+                ],
+              ),
             ),
-            const SizedBox(height: 16),
-            _segmentedControl(),
-            const SizedBox(height: 16.5),
-            Expanded(
-              child: Obx(() {
-                if (controller.selectedTab.value == 0) {
-                  return _locationList(); // My Location screen
-                } else {
-                  return _reviewSection(); // Review screen
-                }
-              }),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _locationList() {
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      itemCount: 5,
-      itemBuilder: (_, index) {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 12),
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: const Color(0xFFE5E7EB)),
-          ),
-          child: Row(
-            children: [
-              // IMAGE
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  'assets/images/cafe.png', // replace with your image
-                  height: 82,
-                  width: 84,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(width: 12),
 
-              // DETAILS
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      "14 Klin Street, Los Angeles, CA",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF9CA3AF),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      "Lucy’s Cafe",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF111827),
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/images/Vector (1).png',
-                          height: 9.33,
-                          width: 15.33,
-                          fit: BoxFit.contain,
-                        ),
-                        const SizedBox(width: 4),
-                        const Text(
-                          "44",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF6B7280),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Image.asset(
-                          'assets/images/star.png',
-                          height: 16,
-                          width: 16,
-                        ),
-                        const SizedBox(width: 4),
-                        const Text(
-                          "4.8",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0xFF6B7280),
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    const Text(
-                      "\$134.08",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xFF3B82F6),
-                      ),
-                    ),
-                  ],
+
+  Widget _locationList() {
+    return GestureDetector(
+      onTap: (){Get.to(() => LocationDetailScreen());},
+      child: ListView.builder(
+        shrinkWrap: true, // ✅
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        itemCount: 5,
+        itemBuilder: (_, index) {
+          return Container(
+            margin: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: const Color(0xFFE5E7EB)),
+            ),
+            child: Row(
+              children: [
+                // IMAGE
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'assets/images/cafe.png', // replace with your image
+                    height:  90,
+                    width: 90,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+                const SizedBox(width: 12),
+
+                // DETAILS
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "14 Klin Street, Los Angeles, CA",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF9CA3AF),
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text(
+                        "Lucy’s Cafe",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF111827),
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/Vector (1).png',
+                            height: 9.33,
+                            width: 15.33,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(width: 4),
+                          const Text(
+                            "44",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xFF6B7280),
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Image.asset(
+                            'assets/images/star.png',
+                            height: 16,
+                            width: 16,
+                          ),
+                          const SizedBox(width: 4),
+                          const Text(
+                            "4.8",
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xFF6B7280),
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      const Text(
+                        "\$134.08",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF3B82F6),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -193,10 +228,10 @@ class MyPanelScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Obx(
         () => Container(
-          height: 44,
-          padding: const EdgeInsets.all(4),
+          height: 50,
+          padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xFFF9FAFB),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Row(

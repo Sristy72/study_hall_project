@@ -25,7 +25,6 @@ class LocationDetailScreen extends StatelessWidget {
   }
 
   // ----------------- APPBAR -----------------
-  // ----------------- APPBAR -----------------
   Widget _buildAppBar(BuildContext context) {
     return Container(
       color: Colors.white,
@@ -80,32 +79,112 @@ class LocationDetailScreen extends StatelessWidget {
           const SizedBox(height: 25),
           _buildTabSwitcher(),
           const SizedBox(height: 25),
-          _buildCollapsibleSection("Description", true),
-          const SizedBox(height: 10),
-          Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. ",
-            style: TextStyle(
-              color: Color(0xFF374151),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              height: 1.5,
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildCollapsibleSection("Rule", true),
-          Text(
-            "orem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit ",
-            style: TextStyle(
-              color: Color(0xFF374151),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              height: 1.5,
-            ),
-          ),
+          Obx(() {
+            switch (controller.selectedTab.value) {
+              case 0:
+                return _buildDescriptionTab();
+              case 1:
+                return _buildAvailabilityTab();
+              case 2:
+                return _reviewSection();
+              default:
+                return _buildDescriptionTab();
+            }
+          }),
+
+          // _buildCollapsibleSection("Description", true),
+          // const SizedBox(height: 10),
+
+          // const SizedBox(height: 20),
+          // _buildCollapsibleSection("Rule", true),
+
         ],
       ),
     );
   }
+
+  Widget _buildDescriptionTab() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildCollapsibleSection("Description", true),
+        const SizedBox(height: 10),
+        const Text(
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. ",
+          style: TextStyle(
+            color: Color(0xFF374151),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            height: 1.5,
+          ),
+        ),
+        const SizedBox(height: 20),
+        _buildCollapsibleSection("Rule", true),
+        const SizedBox(height: 10),
+        const Text(
+          "orem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit ",
+          style: TextStyle(
+            color: Color(0xFF374151),
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            height: 1.5,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildAvailabilityTab() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // const Text(
+        //   "Available Days",
+        //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+        // ),
+        // const SizedBox(height: 12),
+        //
+        // _availabilityRow("Monday", true),
+        // _availabilityRow("Tuesday", true),
+        // _availabilityRow("Wednesday", false),
+        // _availabilityRow("Thursday", true),
+        // _availabilityRow("Friday", false),
+      ],
+    );
+  }
+
+  // Widget _availabilityRow(String day, bool available) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(vertical: 8),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         Text(day, style: const TextStyle(fontSize: 14)),
+  //         Text(
+  //           available ? "Available" : "Not Available",
+  //           style: TextStyle(
+  //             color: available ? Colors.green : Colors.red,
+  //             fontWeight: FontWeight.w500,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  Widget _reviewSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _ratingCard(),
+        const SizedBox(height: 24),
+        _allReviewsHeader(),
+        //const SizedBox(height: 12),
+        _reviewsList(),
+      ],
+    );
+  }
+
 
   // ----------------- INFO GRID -----------------
   Widget _buildInfoGrid() {
@@ -188,6 +267,214 @@ class LocationDetailScreen extends StatelessWidget {
     );
   }
 
+  Widget _ratingCard() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Color(0xFFF9FAFB),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Color(0xFFD1D5DB)),
+      ),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                text: const TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "4.7",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "/5",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color(0xFF9CA3AF),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 4),
+              const Text(
+                "Based on 388 Review",
+                style: TextStyle(
+                  color: Color(0xFF374151),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 6),
+              Row(
+                children: List.generate(
+                  5,
+                      (index) => Padding(
+                    padding: const EdgeInsets.only(right: 5),
+                    child: Image.asset(
+                      'assets/images/star.png',
+                      height: 16,
+                      width: 16,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(width: 20),
+          Expanded(child: _ratingBars()),
+        ],
+      ),
+    );
+  }
+
+  Widget _ratingBars() {
+    return Column(
+      children: [
+        _ratingRow("5 Star", 0.9),
+        _ratingRow("4 Star", 0.75),
+        _ratingRow("3 Star", 0.45),
+        _ratingRow("2 Star", 0.25),
+        _ratingRow("1 Star", 0.15),
+      ],
+    );
+  }
+
+  Widget _ratingRow(String label, double value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 50,
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Color(0xFF6B7280),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: LinearProgressIndicator(
+                value: value,
+                minHeight: 6,
+                backgroundColor: const Color(0xFFE5E7EB),
+                valueColor: const AlwaysStoppedAnimation(Color(0xFFFFB300)),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _allReviewsHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: const [
+        Text(
+          "All Reviews",
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF242E49),
+          ),
+        ),
+        Text(
+          "Most relevant ▾",
+          style: TextStyle(
+            fontSize: 12,
+            color: Color(0xFF9CA3AF),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
+    );
+  }
+
+  // ---------------- REVIEWS LIST ----------------
+  Widget _reviewsList() {
+    const itemCount = 3;
+
+    return ListView.builder(
+      shrinkWrap: true, // ✅ important
+      physics: const NeverScrollableScrollPhysics(), // ✅ important
+
+      padding: const EdgeInsets.only(top: 16),
+      itemCount: itemCount,
+      itemBuilder: (_, index) {
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Emily Johnson",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                          color: Color(0xFF111827),
+                        ),
+                      ),
+                      Text(
+                        "24 Aug 2025",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF4B5563),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Row(
+                    children: List.generate(
+                      5,
+                          (index) => Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: Image.asset(
+                          'assets/images/star.png',
+                          height: 16,
+                          width: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    "Emily John made learning digital marketing an enjoyable experience...",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFF111827),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (index != itemCount - 1)
+              const Divider(height: 16, thickness: 2),
+          ],
+        );
+      },
+    );
+  }
+
+
   // ----------------- UI HELPERS -----------------
   Widget _circleIcon(IconData icon) => Container(
     padding: const EdgeInsets.all(8),
@@ -247,7 +534,6 @@ class LocationDetailScreen extends StatelessWidget {
           title,
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Icon(isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down),
       ],
     );
   }

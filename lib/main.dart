@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Study Hall',
         theme: AppTheme.light,
-      home: LocationDetailScreen(),
+      home: LoginScreen(),
     );
   }
 }

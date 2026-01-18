@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/location_owner_flow/home/screens/pannel_screen.dart';
 
 import '../../../../core/constants/assets_const.dart';
 import '../../../../core/constants/svg_image.dart';
+import '../../my_pendings/screens/my_pannel_screen.dart';
 
 class MyPanelCard extends StatelessWidget {
   const MyPanelCard({super.key});
