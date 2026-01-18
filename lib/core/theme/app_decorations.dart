@@ -6,7 +6,7 @@ class AppDecorations {
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [Color(0xFFFFE0B2), Colors.white],
-      stops: [0.0, 0.15],
+      stops: [0.0, 0.35],
     ),
   );
 }
