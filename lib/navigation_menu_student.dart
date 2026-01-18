@@ -4,6 +4,7 @@ import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
 import 'features/student_flow/home/screens/home_screen.dart';
+import 'features/student_flow/finding_tutor/screens/my_courses_screen.dart';
 
 class CustomBottomNav extends StatefulWidget {
   const CustomBottomNav({super.key});
@@ -17,7 +18,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
   final List<Widget> _pages = const [
     HomeScreen(),           // index 0 → Home
-    Center(child: Text("Learning Page")),
+    MyCoursesScreen(),
     Center(child: Text("Chat Page")),
     Center(child: Text("Profile Page")),
   ];
