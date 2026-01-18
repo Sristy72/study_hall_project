@@ -39,9 +39,7 @@ class SectionHeader extends StatelessWidget {
         ),
 
         TextButton(
-          onPressed: () {
-            onTap;
-          },
+          onPressed: onTap,
           child: Text(
             'See All',
             style: TextStyle(

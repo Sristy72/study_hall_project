@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_hall_project/features/location_owner_flow/home/screens/location_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/home/screens/notification_screen.dart';
 import 'package:study_hall_project/features/location_owner_flow/home/widget/panel_card.dart';
 
 import '../../../../core/common/constants/notification_button.dart';
 import '../../../../core/theme/app_decorations.dart';
 import '../../../student_flow/home/widget/categoryItem.dart';
-import '../../withdraw/widget/trancaction_item.dart';
 import '../widget/booking.dart';
 import '../widget/recent_session.dart';
 
@@ -89,7 +89,7 @@ class _OwnerHomeScreenState extends State<OwnerHomeScreen> {
 
                   const SizedBox(height: 22),
                   const MyPanelCard(),
-                   SectionHeader(title: 'Recent Session', onTap: (){}),
+                   SectionHeader(title: 'Recent Session', onTap: (){Get.to(() => LocationScreen());}),
 
                   const SizedBox(height: 12),
 

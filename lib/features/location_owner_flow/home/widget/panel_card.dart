@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:study_hall_project/features/location_owner_flow/home/screens/pannel_screen.dart';
 
 import '../../../../core/constants/assets_const.dart';
 import '../../../../core/constants/svg_image.dart';
@@ -41,28 +43,31 @@ class MyPanelCard extends StatelessWidget {
           const SizedBox(height: 20),
 
           // My Panel button
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            decoration: BoxDecoration(
-              color: const Color(0xFFDBEAFE), // light blue
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // You can replace with your own SVG/asset
-                AppSvg(asset: Images.category),
-                const SizedBox(width: 8),
-                const Text(
-                  "My Panel",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF3B82F6),
+          GestureDetector(
+            onTap: (){Get.to(()=> MyPanelScreen());},
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              decoration: BoxDecoration(
+                color: const Color(0xFFDBEAFE), // light blue
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // You can replace with your own SVG/asset
+                  AppSvg(asset: Images.category),
+                  const SizedBox(width: 8),
+                  const Text(
+                    "My Panel",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF3B82F6),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
