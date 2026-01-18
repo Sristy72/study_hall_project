@@ -162,13 +162,13 @@ class BookingDetailsScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-         _InfoItem(image: '', label: 'Online'),
+         _InfoItem(image: 'assets/images/video.png', label: 'Online', text: '',),
         Container(width: 1,color: Color(0xFFD1D5DB),height: 40,),
          _InfoItem(image: 'assets/images/clock.png', label: '1 Hour', text: 'Duration',),
         Container(width: 1,color: Color(0xFFD1D5DB),height: 40,),
-         _InfoItem(image: '', label: '\$10/Student'),
+         _InfoItem(image: 'assets/images/currency-dollar.png', label: '\$10/Student', text: 'Fees',),
         Container(width: 1,color: Color(0xFFD1D5DB),height: 40,),
-         _InfoItem(image: '', label: '04'),
+         _InfoItem(image: 'assets/images/graduation-cap.png', label: '04', text: 'Student',),
       ],
     );
   }
@@ -236,9 +236,9 @@ class BookingDetailsScreen extends StatelessWidget {
 class _InfoItem extends StatelessWidget {
   final String image;
   final String label;
-  final String? text;
+  final String text;
 
-  const _InfoItem({required this.label, this.text, required this.image});
+  const _InfoItem({required this.label, required this.text, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -246,8 +246,8 @@ class _InfoItem extends StatelessWidget {
       children: [
         Row(
           children: [
-            Image.asset(image),
-            Text(text!)
+            Container(height:16, width:16,child: Image.asset(image)),
+            Text(text)
           ],
         ),
         const SizedBox(height: 4),
