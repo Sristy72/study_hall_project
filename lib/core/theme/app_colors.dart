@@ -37,4 +37,10 @@ class AppColors {
   // static const Color iconBg = Color(0xFFE6F5F3);
   // static const Color bgGreen = Color(0xFFE6F5F3);
   // static const Color bgWhite = Color(0xFFCCD1FF);
+
+  static const Color lightGrey = Color(0xFFF5F5F5);
+  static const Color greyText = Color(0xFF969696);
+  static const Color orangeAccent = Color(0xFFFF6B35);
+  static const Color lightBlue = Color(0xFFE3F2FD);
+  static const Color blueText = Color(0xFF2196F3);
 }

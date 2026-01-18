@@ -32,11 +32,11 @@ class _LoginScreenState extends State<LoginScreen> {
   final _authCtrl = Get.put(AuthController());
 
   Future<void> _submit() async {
-    if (!_formKey.currentState!.validate()) return;
+    // if (!_formKey.currentState!.validate()) return;
     DPrint.log("message");
     await _authCtrl.login(
-      email: _emailTextController.text.trim(),
-      password: _passTextController.text,
+      _emailTextController.text.trim(),
+      _passTextController.text,
     );
   }
 
@@ -187,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             PrimaryButton(
                               height: 56,
                               onSimplePressed: () {
-                                Get.to(() => CustomBottomNav());
+                                _submit();
                               },
                               text: 'Login',
                             ),
