@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_hall_project/features/location_owner_flow/my_pendings/model/edit_location_model.dart';
 
 import '../controller/location_details_controller.dart';
+import 'edit_screen.dart';
 
 class LocationDetailScreen extends StatelessWidget {
   final LocationController controller = Get.put(LocationController());
@@ -33,7 +35,9 @@ class LocationDetailScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Get.back();
+            },
             child: _circleIcon(Icons.chevron_left),
           ),
           Obx(
@@ -43,7 +47,22 @@ class LocationDetailScreen extends StatelessWidget {
             ),
           ),
           // Replace edit icon with an image
-          _circleImage("assets/images/edit_icon.png"),
+          GestureDetector(
+            onTap: () {
+              final workspace = EditWorkspaceData(
+                name: controller.locationName.value,
+                description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...", // ← get real value
+                rule:
+                "orem ipsum dolor sit amet, consectetur adipiscing elit. ...", // ← get real value
+                noiseLevel: "Low", // ← from your model
+                maxReservationsPerDay: 10, // ← from your model
+              );
+
+              Get.to(() => WorkspaceEditScreen(initialWorkspace: workspace));
+            },
+            child: _circleImage("assets/images/edit_icon.png"),
+          ),
         ],
       ),
     );
@@ -97,7 +116,6 @@ class LocationDetailScreen extends StatelessWidget {
 
           // const SizedBox(height: 20),
           // _buildCollapsibleSection("Rule", true),
-
         ],
       ),
     );
@@ -129,7 +147,7 @@ class LocationDetailScreen extends StatelessWidget {
             fontWeight: FontWeight.w400,
             height: 1.5,
           ),
-        )
+        ),
       ],
     );
   }
@@ -184,7 +202,6 @@ class LocationDetailScreen extends StatelessWidget {
       ],
     );
   }
-
 
   // ----------------- INFO GRID -----------------
   Widget _buildInfoGrid() {
@@ -315,7 +332,7 @@ class LocationDetailScreen extends StatelessWidget {
               Row(
                 children: List.generate(
                   5,
-                      (index) => Padding(
+                  (index) => Padding(
                     padding: const EdgeInsets.only(right: 5),
                     child: Image.asset(
                       'assets/images/star.png',
@@ -408,9 +425,11 @@ class LocationDetailScreen extends StatelessWidget {
     const itemCount = 3;
 
     return ListView.builder(
-      shrinkWrap: true, // ✅ important
-      physics: const NeverScrollableScrollPhysics(), // ✅ important
+      shrinkWrap: true,
+      // ✅ important
+      physics: const NeverScrollableScrollPhysics(),
 
+      // ✅ important
       padding: const EdgeInsets.only(top: 16),
       itemCount: itemCount,
       itemBuilder: (_, index) {
@@ -445,7 +464,7 @@ class LocationDetailScreen extends StatelessWidget {
                   Row(
                     children: List.generate(
                       5,
-                          (index) => Padding(
+                      (index) => Padding(
                         padding: const EdgeInsets.only(right: 4),
                         child: Image.asset(
                           'assets/images/star.png',
@@ -458,22 +477,17 @@ class LocationDetailScreen extends StatelessWidget {
                   const SizedBox(height: 8),
                   const Text(
                     "Emily John made learning digital marketing an enjoyable experience...",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFF111827),
-                    ),
+                    style: TextStyle(fontSize: 12, color: Color(0xFF111827)),
                   ),
                 ],
               ),
             ),
-            if (index != itemCount - 1)
-              const Divider(height: 16, thickness: 2),
+            if (index != itemCount - 1) const Divider(height: 16, thickness: 2),
           ],
         );
       },
     );
   }
-
 
   // ----------------- UI HELPERS -----------------
   Widget _circleIcon(IconData icon) => Container(

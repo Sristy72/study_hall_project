@@ -114,8 +114,6 @@ class _LocationScreenState extends State<LocationScreen> {
 
 
 
-
-
                   // Changed to ListView.builder
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
