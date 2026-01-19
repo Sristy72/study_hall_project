@@ -19,7 +19,7 @@ class _BecomeTutorExperienceScreenState extends State<BecomeTutorExperienceScree
   String? _selectedOccupation;
   String? _selectedEducationLevel;
   String? _selectedCategory;
-  List<File> _documentImages = [];
+  final List<File> _documentImages = [];
 
   final List<String> _occupations = [
     'Teacher',

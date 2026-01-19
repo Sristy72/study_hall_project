@@ -79,7 +79,7 @@ class Filter extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
               child: Row(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 130,
                     child: OutlinedButton(
                       onPressed: () => Navigator.pop(context),

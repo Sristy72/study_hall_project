@@ -77,7 +77,7 @@ class IncomeDashboard extends StatelessWidget {
                 ),
               ),
               if (showDropdown)
-                Container(height: 37, width:37,child: Image.asset('assets/images/angle-down.png')),
+                SizedBox(height: 37, width:37,child: Image.asset('assets/images/angle-down.png')),
               if (isTotal)
                 Container(
                   padding: const EdgeInsets.all(6),
@@ -85,7 +85,7 @@ class IncomeDashboard extends StatelessWidget {
                     color: Color(0xFFF3F4F6),
                     borderRadius: BorderRadius.circular(6)
                   ),
-                  child: Container(height: 26, width:26,child: Image.asset('assets/images/circle-dollar.png')),
+                  child: SizedBox(height: 26, width:26,child: Image.asset('assets/images/circle-dollar.png')),
                 ),
             ],
           ),

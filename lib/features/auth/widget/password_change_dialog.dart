@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/theme/app_colors.dart';
-import '../screens/login_screen.dart';
 
 // ── Reusable Success Dialog ────────────────────────────────────────────────
 void showPasswordSuccessDialog(

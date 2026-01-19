@@ -66,7 +66,7 @@ class AuthEndpoints {
   final String resetPasswordWithToken =
       '${ApiConstants.baseUrl}/security-answers/reset-password';
 
-  get otpVerifyReset => null;
+  Null get otpVerifyReset => null;
 }
 
 class UserEndpoints {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:study_hall_project/features/location_owner_flow/home/screens/owner_home_screen.dart';
 
 import '../../home/widget/notification_dialog.dart';
 

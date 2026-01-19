@@ -8,7 +8,6 @@ import 'package:study_hall_project/features/auth/screens/register_email_screen.d
 import '../../../../core/common/widgets/button_widgets.dart';
 import '../../../../core/theme/input_decoration_extensions.dart';
 import '../../../../navigation_menu_location_owner.dart';
-import '../../../../navigation_menu_student.dart';
 import '../controller/auth_controller.dart';
 import 'forgot_password_screen.dart';
 

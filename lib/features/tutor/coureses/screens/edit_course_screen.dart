@@ -218,7 +218,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             
             // Session Category
             DropdownButtonFormField<String>(
-              value: _selectedCategory,
+              initialValue: _selectedCategory,
               decoration: InputDecoration(
                 labelText: 'Session category',
                 labelStyle: const TextStyle(color: AppColors.greyText),
@@ -241,7 +241,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             
             // Session Sub-category
             DropdownButtonFormField<String>(
-              value: _selectedSubCategory,
+              initialValue: _selectedSubCategory,
               decoration: InputDecoration(
                 labelText: 'Session sub-category',
                 labelStyle: const TextStyle(color: AppColors.greyText),
@@ -347,7 +347,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             
             // Student
             DropdownButtonFormField<String>(
-              value: _selectedStudent,
+              initialValue: _selectedStudent,
               decoration: InputDecoration(
                 labelText: 'Student',
                 labelStyle: const TextStyle(color: AppColors.greyText),
@@ -370,7 +370,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             
             // Duration
             DropdownButtonFormField<String>(
-              value: _selectedDuration,
+              initialValue: _selectedDuration,
               decoration: InputDecoration(
                 labelText: 'Duration',
                 labelStyle: const TextStyle(color: AppColors.greyText),
@@ -447,7 +447,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             
             // Session Time
             DropdownButtonFormField<String>(
-              value: _selectedTime,
+              initialValue: _selectedTime,
               decoration: InputDecoration(
                 labelText: 'Session Time',
                 labelStyle: const TextStyle(color: AppColors.greyText),
@@ -479,7 +479,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedState,
+              initialValue: _selectedState,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -508,7 +508,7 @@ class _EditCourseScreenState extends State<EditCourseScreen> {
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
-              value: _selectedCity,
+              initialValue: _selectedCity,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

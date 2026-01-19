@@ -175,7 +175,7 @@ class CategoryTile extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(14.5),
-              child: Container(width:19, height:19,child: Image.asset(image)),
+              child: SizedBox(width:19, height:19,child: Image.asset(image)),
             ),
           ),
           const SizedBox(width: 12),

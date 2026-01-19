@@ -19,9 +19,9 @@ class NotificationScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Row(
-                      children: const [
+                      children: [
                         CustomBackButton2(),
                         SizedBox(width: 16),
                         Text(
@@ -156,7 +156,7 @@ class _NotificationTile extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
+              child: SizedBox(
                 height: 30,
                 width: 30,
                 child: Image.asset('assets/images/bell-check.png'),

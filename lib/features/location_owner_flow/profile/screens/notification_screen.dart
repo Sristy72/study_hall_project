@@ -31,9 +31,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Row(
-                      children: const [
+                      children: [
                         CustomBackButton2(),
                         SizedBox(width: 16),
                         Text(

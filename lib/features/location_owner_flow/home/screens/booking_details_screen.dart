@@ -29,9 +29,9 @@ class BookingDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    padding: EdgeInsets.symmetric(horizontal: 18),
                     child: Row(
-                      children: const [
+                      children: [
                         CustomBackButton2(),
                         SizedBox(width: 16),
                         Text(
@@ -70,7 +70,7 @@ class BookingDetailsScreen extends StatelessWidget {
                             
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Container(height:40, width: 40,child: Image.asset('assets/images/play-circle.png'))
+                          child: SizedBox(height:40, width: 40,child: Image.asset('assets/images/play-circle.png'))
                         ),
                       ),
                     ],

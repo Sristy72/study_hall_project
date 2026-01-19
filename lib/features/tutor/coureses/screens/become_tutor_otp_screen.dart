@@ -40,7 +40,7 @@ class _BecomeTutorOtpScreenState extends State<BecomeTutorOtpScreen> {
   String _formatTime(int seconds) {
     final minutes = seconds ~/ 60;
     final secs = seconds % 60;
-    return '${minutes}:${secs.toString().padLeft(2, '0')}';
+    return '$minutes:${secs.toString().padLeft(2, '0')}';
   }
 
   void _verifyOtp() {

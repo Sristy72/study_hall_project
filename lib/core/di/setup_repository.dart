@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 
 void setupRepository() {
   // Get.lazyPut<AuthRepository>(

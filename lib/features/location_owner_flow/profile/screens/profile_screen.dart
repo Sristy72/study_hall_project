@@ -283,7 +283,7 @@ class _ProfileSettingScreenState extends State<ProfileSettingScreen> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Container(height: 22, width:22, child: Image.asset(image)),
+                child: SizedBox(height: 22, width:22, child: Image.asset(image)),
               ),
             ),
             title: Text(

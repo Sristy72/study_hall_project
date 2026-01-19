@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:study_hall_project/features/location_owner_flow/income/widget/filter.dart';
 import 'package:study_hall_project/features/location_owner_flow/income/widget/income_dashboard.dart';
 import 'package:study_hall_project/features/location_owner_flow/income/widget/transaction_list.dart';
-import 'package:study_hall_project/features/location_owner_flow/withdraw/widget/balanced_card.dart';
 
 import '../../../../core/common/constants/back_button.dart';
-import '../../withdraw/widget/bottom_sheet.dart';
-import '../../withdraw/widget/trancaction_item.dart';
-import '../../withdraw/widget/withdrawl_detail.dart';
 
 class IncomeScreen extends StatefulWidget {
   const IncomeScreen({super.key});

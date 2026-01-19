@@ -333,7 +333,7 @@ class _RegisterInfoScreenState extends State<RegisterInfoScreen> {
                             ),
                             const SizedBox(height: 4),
                             DropdownButtonFormField<String>(
-                              value: _selectedGender,
+                              initialValue: _selectedGender,
                               hint: const Text(
                                 'Ex. male',
                                 style: TextStyle(color: Color(0xFF9CA3AF)),

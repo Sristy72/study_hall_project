@@ -28,7 +28,7 @@ class BecomeTutorPopupDialog extends StatelessWidget {
           children: [
             const SizedBox(height: 30),
             // Illustration
-            Container(
+            SizedBox(
               width: 200,
               height: 200,
               child: Stack(

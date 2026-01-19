@@ -201,7 +201,7 @@ class CourseCard extends StatelessWidget {
                           ),
 
                           SizedBox(width: 6,),
-                          Container(height: 13, width:13, child: Image.asset('assets/images/range.png'))
+                          SizedBox(height: 13, width:13, child: Image.asset('assets/images/range.png'))
                         ],
                       ),
                     ),
@@ -293,7 +293,7 @@ class CourseCard extends StatelessWidget {
                         const SizedBox(height: 4),
                         Row(
                           children: [
-                            Container(height:14, width: 14, child: Image.asset('assets/images/module.png',)),
+                            SizedBox(height:14, width: 14, child: Image.asset('assets/images/module.png',)),
                             SizedBox(width: 3.2,),
                             Text(
                               modules,
