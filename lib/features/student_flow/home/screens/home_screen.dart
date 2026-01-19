@@ -7,6 +7,7 @@ import 'package:study_hall_project/core/constants/svg_image.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import '../widget/categoryItem.dart';
 import 'all_category_screen.dart';
+import '../../search/screens/student_search_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,7 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
 
                               Spacer(),
-                              SearchButton(),
+                              SearchButton(
+                                onTap: () => Get.to(() => const StudentSearchScreen()),
+                              ),
                               SizedBox(width: 12,),
                               NotificationButton()
                             ],
