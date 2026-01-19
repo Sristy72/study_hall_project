@@ -5,6 +5,7 @@ import 'package:study_hall_project/core/common/constants/search_button.dart';
 import 'package:study_hall_project/core/constants/assets_const.dart';
 import 'package:study_hall_project/core/constants/svg_image.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
+import 'package:study_hall_project/features/location_owner_flow/home/screens/notification_screen.dart';
 import '../widget/categoryItem.dart';
 import 'all_category_screen.dart';
 
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Spacer(),
                               SearchButton(),
                               SizedBox(width: 12,),
-                              NotificationButton()
+                              NotificationButton(onTap: (){Get.to(() => NotificationScreen());},)
                             ],
                           ),
 

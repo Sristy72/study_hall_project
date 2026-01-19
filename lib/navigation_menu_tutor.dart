@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
+import 'package:study_hall_project/features/student_flow/message/screen/message_screen.dart';
+import 'package:study_hall_project/features/tutor/home/scsreens/tutor_home_screen.dart';
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
@@ -22,9 +24,9 @@ class _CustomBottomNavTutorState extends State<CustomBottomNavTutor> {
   int selectedIndex = 0;
 
   final List<Widget> _pages = const [
-    CourseDetailScreen(), // index 0 → Home
+    TutorHomeScreen(), // index 0 → Home
     MyCoursesWrapper(), // index 1 → Learning (shows empty or courses)
-    Center(child: Text("Chat Page")),
+    MessageScreen(),
     TeacherProfileSettingScreen(), // index 3 → Profile
   ];
 

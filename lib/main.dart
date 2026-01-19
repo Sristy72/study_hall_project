@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'core/init/app_initializer.dart';
 import 'core/theme/app_theme.dart';
-import 'features/Income/screens/income_screen.dart';
 import 'features/auth/screens/login_screen.dart';
 import 'features/location_owner_flow/home/screens/owner_home_screen.dart';
 import 'features/location_owner_flow/my_pendings/screens/location_details_screen.dart';

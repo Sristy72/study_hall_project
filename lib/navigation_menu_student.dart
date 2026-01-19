@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_hall_project/core/constants/assets_const.dart' hide Icons;
+import 'package:study_hall_project/features/student_flow/message/screen/message_screen.dart';
 
 import 'clipper.dart';
 import 'core/constants/svg_image.dart';
@@ -21,7 +22,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
   final List<Widget> _pages = const [
     HomeScreen(),           // index 0 → Home
     MyCoursesWrapper(),     // index 1 → Learning (shows empty or courses)
-    Center(child: Text("Chat Page")),
+    MessageScreen(),
     MainProfileScreen(),    // index 3 → Profile
   ];
 
