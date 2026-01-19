@@ -6,6 +6,7 @@ import 'package:study_hall_project/core/constants/assets_const.dart';
 import 'package:study_hall_project/core/constants/svg_image.dart';
 import 'package:study_hall_project/core/theme/app_decorations.dart';
 import 'package:study_hall_project/features/location_owner_flow/home/screens/notification_screen.dart';
+import '../../search/student_search_screen.dart';
 import '../widget/categoryItem.dart';
 import 'all_category_screen.dart';
 
@@ -26,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Align(
             alignment: Alignment.topCenter,
             child: LayoutBuilder(
-              builder: (context, constraints){
+              builder: (context, constraints) {
                 return SingleChildScrollView(
                   //padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: ConstrainedBox(
-                    constraints:const BoxConstraints(
-                    maxWidth: 600,
-                    minWidth: 300,
-                  ),
+                    constraints: const BoxConstraints(
+                      maxWidth: 600,
+                      minWidth: 300,
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Column(
@@ -46,19 +47,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Good Morning!', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                                  Text('Kate!', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),)
+                                  Text(
+                                    'Good Morning!',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Kate!',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 24,
+                                    ),
+                                  ),
                                 ],
                               ),
 
                               Spacer(),
-                              SearchButton(),
-                              SizedBox(width: 12,),
-                              NotificationButton(onTap: (){Get.to(() => NotificationScreen());},)
+                              SearchButton(
+                                onTap: () =>
+                                    Get.to(() => StudentSearchScreen()),
+                              ),
+                              SizedBox(width: 12),
+                              NotificationButton(
+                                onTap: () {
+                                  Get.to(() => NotificationScreen());
+                                },
+                              ),
                             ],
                           ),
 
                           const SizedBox(height: 14),
+
                           /// Categories Card
                           Container(
                             padding: const EdgeInsets.all(16),
@@ -71,9 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.06),  // Soft shadow
+                                  color: Colors.black.withOpacity(
+                                    0.06,
+                                  ), // Soft shadow
                                   blurRadius: 12,
-                                  offset: const Offset(0, 6),  // Shadow slightly below
+                                  offset: const Offset(
+                                    0,
+                                    6,
+                                  ), // Shadow slightly below
                                   spreadRadius: 0,
                                 ),
                                 BoxShadow(
@@ -87,17 +113,32 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: const [
-                                    CategoryItem(image: 'assets/images/guitar.png', label: 'Guitar'),
-                                    CategoryItem(image: 'assets/images/physical.png', label: 'Physical'),
-                                    CategoryItem(image: 'assets/images/crypto.png', label: 'Crypto'),
-                                    CategoryItem(image: 'assets/images/math.png', label: 'Math'),
+                                    CategoryItem(
+                                      image: 'assets/images/guitar.png',
+                                      label: 'Guitar',
+                                    ),
+                                    CategoryItem(
+                                      image: 'assets/images/physical.png',
+                                      label: 'Physical',
+                                    ),
+                                    CategoryItem(
+                                      image: 'assets/images/crypto.png',
+                                      label: 'Crypto',
+                                    ),
+                                    CategoryItem(
+                                      image: 'assets/images/math.png',
+                                      label: 'Math',
+                                    ),
                                   ],
                                 ),
                                 const SizedBox(height: 12),
                                 GestureDetector(
-                                  onTap: (){Get.to(() => AllCategoryScreen());},
+                                  onTap: () {
+                                    Get.to(() => AllCategoryScreen());
+                                  },
                                   child: Container(
                                     height: 44,
                                     width: double.infinity,
@@ -105,11 +146,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: const Color(0xFFDBEAFE),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
-                                    child:  Center(
+                                    child: Center(
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                         AppSvg(asset: Images.category),
+                                          AppSvg(asset: Images.category),
                                           SizedBox(width: 8),
                                           Text(
                                             'All Categories',
@@ -130,18 +172,43 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(height: 24),
 
                           /// Popular Tutors
-                          SectionHeader(title: 'Popular Tutors', onTap: () {  },),
+                          SectionHeader(title: 'Popular Tutors', onTap: () {}),
                           const SizedBox(height: 12),
                           SizedBox(
                             height: 120,
                             child: ListView(
                               scrollDirection: Axis.horizontal,
                               children: const [
-                                TutorCard(name: 'Alex Johnson', subject: 'French', likes: '500', rating: '4.5'),
-                                TutorCard(name: 'Brooklyn Simmons', subject: 'Art', likes: '199', rating: '5.0'),
-                                TutorCard(name: 'Theresa Webb', subject: 'English', likes: '100', rating: '4.8'),
-                                TutorCard(name: 'Theresa Webb', subject: 'English', likes: '100', rating: '4.8'),
-                                TutorCard(name: 'Theresa Webb', subject: 'English', likes: '100', rating: '4.8'),
+                                TutorCard(
+                                  name: 'Alex Johnson',
+                                  subject: 'French',
+                                  likes: '500',
+                                  rating: '4.5',
+                                ),
+                                TutorCard(
+                                  name: 'Brooklyn Simmons',
+                                  subject: 'Art',
+                                  likes: '199',
+                                  rating: '5.0',
+                                ),
+                                TutorCard(
+                                  name: 'Theresa Webb',
+                                  subject: 'English',
+                                  likes: '100',
+                                  rating: '4.8',
+                                ),
+                                TutorCard(
+                                  name: 'Theresa Webb',
+                                  subject: 'English',
+                                  likes: '100',
+                                  rating: '4.8',
+                                ),
+                                TutorCard(
+                                  name: 'Theresa Webb',
+                                  subject: 'English',
+                                  likes: '100',
+                                  rating: '4.8',
+                                ),
                               ],
                             ),
                           ),
@@ -149,41 +216,42 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(height: 24),
 
                           /// Newest Course
-                          SectionHeader(title: 'Newest Course', onTap: () {  },),
+                          SectionHeader(title: 'Newest Course', onTap: () {}),
                           const SizedBox(height: 12),
-                        SizedBox(
-                          height: 253,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            primary: false,
-                            shrinkWrap: true,
-                            physics: const BouncingScrollPhysics(),
-                            clipBehavior: Clip.none, // ⭐ THIS IS THE KEY FIX
-                            children: [
-                              CourseCard(
-                                title: 'Entrepreneurship and New Venture Creation',
-                                category: 'Business',
-                                author: 'Emily John',
-                                modules: '12 module',
-                                students: '3.8k join',
-                              ),
-                              CourseCard(
-                                title: 'Basic Art Course Elements',
-                                category: 'Art',
-                                author: 'Brooklyn',
-                                modules: '12 module',
-                                students: '1.2k join',
-                              ),
-                              CourseCard(
-                                title: 'Basic Art Course Elements',
-                                category: 'Art',
-                                author: 'Brooklyn',
-                                modules: '12 module',
-                                students: '1.2k join',
-                              ),
-                            ],
+                          SizedBox(
+                            height: 253,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              primary: false,
+                              shrinkWrap: true,
+                              physics: const BouncingScrollPhysics(),
+                              clipBehavior: Clip.none, // ⭐ THIS IS THE KEY FIX
+                              children: [
+                                CourseCard(
+                                  title:
+                                      'Entrepreneurship and New Venture Creation',
+                                  category: 'Business',
+                                  author: 'Emily John',
+                                  modules: '12 module',
+                                  students: '3.8k join',
+                                ),
+                                CourseCard(
+                                  title: 'Basic Art Course Elements',
+                                  category: 'Art',
+                                  author: 'Brooklyn',
+                                  modules: '12 module',
+                                  students: '1.2k join',
+                                ),
+                                CourseCard(
+                                  title: 'Basic Art Course Elements',
+                                  category: 'Art',
+                                  author: 'Brooklyn',
+                                  modules: '12 module',
+                                  students: '1.2k join',
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
                           const SizedBox(height: 16),
 
                           const SizedBox(height: 32),
@@ -193,7 +261,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-
             ),
           ),
         ),
